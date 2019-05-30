@@ -8,7 +8,7 @@ int NumberOfProjects, struct MyStudent *Student, arma::mat& StudentPreferenceMat
 '''
 studentList = []
 individualList = []
-    
+
 def readFromCsv(NumberOfProject,studentList,StudentPreferenceMatrix,filename):
     reader = pd.read_csv(filename,delimiter = ',')
     for row in range(reader.shape[0]):
@@ -23,12 +23,12 @@ def readFromCsv(NumberOfProject,studentList,StudentPreferenceMatrix,filename):
             partnerfirst = reader['Partner First'][row]
             partnerGPA = reader['Partner GPA'][row]
             stu.updatePartnerInfo(partnerlast,partnerfirst,partnerGPA)
-            
-        
 
-        
+
+
+
 
 readFromCsv(0,studentList,0,"StudentPreferenceSpring2019_PredetTeamRemoved.csv")
 
-
-
+def ReadInputData(in_filename):
+    
