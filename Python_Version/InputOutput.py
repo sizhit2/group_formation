@@ -32,6 +32,10 @@ def ReadInputData(in_filename):
     pass
 
 
+'''Void function to test functionality implemented in this file'''
 def test_main():
     student_list = readFromCsv(0,studentList,0,"StudentPreferenceSpring2019_PredetTeamRemoved.csv")
     individualList = []
+
+if __name__ == '__main__':
+    test_main()
