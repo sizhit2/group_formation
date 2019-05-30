@@ -23,8 +23,7 @@ class MyStudent(object):
         self.PartnerFirstName = partnerfirstname
         self.PartnerGPA = partnergpa
 
-stu = MyStudent(4.0,1,'Tan','Sizhi')
-stu.updatePartnerInfo('Wan','Guangya',2.0)
+
 
 class Individual(object):
     def __init__(self):
