@@ -47,11 +47,11 @@ StudentPreferenceSpring2019_PredetTeamRemoved.csv
 ##  CONVERGENCE PARAMETERS   ##
 ###############################
 ## Maximum number of optimization iterations
-#Max_Iteration 
+#Max_Iteration
 1000
 ## Cost function change tolerance
 #costtol
-1e-6
+0.000001
 ###############################
 ##  COST FUNCTION            ##
 ###############################

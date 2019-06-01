@@ -1,0 +1,67 @@
+###############################
+##  GENERAL PARAMETERS       ##
+###############################
+## Name of the file with student roster
+#Filename
+StudentPreferenceSpring2019_PredetTeamRemoved.csv
+## Number of students in the class
+#NumberOfStudents
+100
+## Number of projects
+#NumberOfProjects
+27
+## Minimum number of projects to be selected by each student
+#MinimumNumberSelectedProjects
+8
+## Maximum number of students per each project
+#MaximumNumberStudentsPerProject
+5
+###############################
+##  GENETIC ALGORITHM        ##
+###############################
+## Population size (number of chromosomes)
+#PopulationSize
+500
+## Probability of crossover
+#CrossoverProbability
+0.95
+## Probability of mutation
+#MutationProbability
+0.1
+## Number of chromosomes to be kept in the next generation
+#N_Keep
+2
+## Number of locations in which crossover occurs
+#N_cross
+2
+## Reassign students that are not placed in desired project? (Performed for 5% best individuals)
+## 0 = NO
+## negative number: reassign only done after algorithm has achieved some predefined convergence check
+## positive number: reassign is done for every optimization iteration
+## 1 = reassign all students that are not placed at desired project
+## 2 = reassign all students that are not placed at desired project IF objective function increases
+## 0<X<1 = reassign students that are not placed at desired project with probability X %
+#reassign
+1
+###############################
+##  CONVERGENCE PARAMETERS   ##
+###############################
+## Maximum number of optimization iterations
+#Max_Iteration 
+1000
+## Cost function change tolerance
+#costtol
+1e-6
+###############################
+##  COST FUNCTION            ##
+###############################
+## Consider balance in the number of students per project
+## gamma is the weight parameter
+## gamma = 0.0: term is not part of the cost function
+#gamma
+2
+## Consider balance in the gpa average of each team (project)
+## gamma_gpa is the weight parameter
+## gamma_gpa = 0.0: term is not part of the cost function
+#gamma_gpa
+2

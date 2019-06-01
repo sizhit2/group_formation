@@ -1,0 +1,15 @@
+StudentPreferenceSpring2019_PredetTeamRemoved.csv
+100
+27
+8
+5
+500
+0.95
+0.1
+2
+2
+1
+1000
+0.000001
+2
+2
