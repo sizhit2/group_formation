@@ -33,7 +33,7 @@ def get_num_students_per_project(student_list, population):
 '''Function that attempts to correct infeasibility in chromosomes across a population.
     Mutates the population parameter and returns it.'''
 def repair_dv_matrix(population, max_per_project, student_pref_matrix, student_list):
-    population = get_num_students_per_project(population)
+    population = get_num_students_per_project(student_list, population)
     for individual in population:
         # Correct infeasibility in each individual
 
@@ -43,10 +43,10 @@ def repair_dv_matrix(population, max_per_project, student_pref_matrix, student_l
             crowded_proj = i
             for j in range(individual.num_students):
                 # Find a student who picked the crowded project
-                assigned_proj = individual.chrom[j]
+                assigned_proj = int(individual.chrom[j])
                 if assigned_proj == crowded_proj:
                     compatible_projs = np.argsort(student_pref_matrix[j, :]) # Sort the compatible projects based on student preference
-
+                    # print (len(compatible_projs))
                     # Compute how many students need to be moved around
                     if (student_list[j].selected_partner):
                         add = 2
@@ -55,13 +55,13 @@ def repair_dv_matrix(population, max_per_project, student_pref_matrix, student_l
 
                     # Now move the student(s) to a project based on preference
                     for k in range(individual.num_projects):
-                        tentative_proj = compatible_projs[k]
-                        if (individual.num_student_per_project[tentative_proj] <= max_per_project - add):
+                        tentative_proj = int(compatible_projs[k-1])
+                        if (individual.num_student_per_project[tentative_proj] < max_per_project):
                             individual.chrom[j] = tentative_proj
-                            individual.dv_matrix[j, assigned_proj] = 0
-                            individual.dv_matrix[j, tentative_proj] = 1
-                            individual.num_student_per_project[assigned_proj] -= add
-                            individual.num_student_per_project[tentative_proj] += add
+                            individual.dv_matrix[j, int(assigned_proj)] = 0
+                            individual.dv_matrix[j, int(tentative_proj)] = 1
+                            individual.num_student_per_project[int(assigned_proj)] -= add
+                            individual.num_student_per_project[int(tentative_proj)] += add
                             break
 
                 # Back to j-loop
@@ -71,5 +71,6 @@ def repair_dv_matrix(population, max_per_project, student_pref_matrix, student_l
             # i-loop
             if individual.num_student_per_project[i] > max_per_project:
                 # raise Exception("Infeasible project: " + str(i))
-                pass
+                # print ("skipped over project " + str(i))
+                pass 
     return population
