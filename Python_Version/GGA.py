@@ -45,9 +45,11 @@ def main():
     change_cost_function = 10
     converged = False
     max_iter = 1
-    while (iter < max_iter):
-        population = create_design_var_matrix(population)
-        population = repair_dv_matrix(population, max_students_per_proj, student_pref_matrix, student_list)
+    while iter < max_iter:
+        population = compute_and_fix(population, max_students_per_proj, student_list)
+        for (i, ind) in enumerate(population):
+            print("Chromosome: ", str(i), "\n", ind.chrom, "\n", str(ind.num_student_per_project))
+        iter += 1
 
 
 if __name__ == '__main__':
