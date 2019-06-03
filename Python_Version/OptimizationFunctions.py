@@ -68,7 +68,7 @@ def repair_ind_dv_matrix(individual, max_per_project, student_list):
                 compatible_projs = np.argsort(student_list[stud].project_preferences)[::-1]
                 for tentative_proj in compatible_projs:
                     # If we can fit this student into the project of their preference do it
-                    if individual.num_student_per_project[tentative_proj] <= max_per_project - add:
+                    if individual.num_student_per_project[tentative_proj] <= (max_per_project - add):
                         individual.chrom[stud] = tentative_proj
                         individual.dv_matrix[stud, tentative_proj] = 1
                         individual.dv_matrix[stud, crowded_proj] = 0
