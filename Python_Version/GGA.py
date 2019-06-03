@@ -5,6 +5,7 @@ from InputOutput import *
 from Initialize import initialize_population
 from GeneticAlgorithmFunctions import *
 import copy
+import time
 
 def main():
     in_data = parse_input_data('../data/input_data.txt')
@@ -30,6 +31,8 @@ def main():
     gamma = in_data[13]
     gamma_gpa = in_data[14]
 
+    gamma_gpa = 0 # Comment out this line when considering GPA
+
     print ("Reading Excel data....")
     student_list = read_from_csv("../data/StudentPreferenceSpring2019_PredetTeamRemoved.csv", (num_projects+1))
     student_pref_matrix = np.zeros((num_students, num_projects))
@@ -46,8 +49,8 @@ def main():
     population = compute_and_fix(population, max_students_per_proj, student_list)
     population = evaluate_fitness(population, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
     population.sort(key=lambda ind: ind.fitness, reverse=True)
-    for ind in population:
-        print (ind.fitness)
+    # for ind in population:
+    #     print (ind.fitness)
     best_chromosome = copy.deepcopy(population[0])
     best_cost = best_chromosome.fitness
     cost_val = best_cost
@@ -56,10 +59,12 @@ def main():
     iter_check = 0
     change_cost_function = 10
     converged = False
-    max_iter = 1
+
+    start = time.time()
     while iter < max_iter:
         iter += 1
-
+        if iter % 100 == 0:
+            print ("Generation #", iter)
         # Form a new generation
         new_pop = crossover_with_random_offspring_generation(population, n_keep, crossover_prob)
         new_pop = apply_mutation(new_pop, mutation_prob, n_keep)
@@ -94,10 +99,30 @@ def main():
         # For the next iteration
         population = new_pop
         cost_val = new_cost_val
+    else: # Loop else to check convergence
+        print ("Max iter reached..")
+    seconds_taken = time.time() - start
     print ("Final chromosome: \n", best_chromosome.chrom)
+    total_satisfaction = 0
+    num_students_picked_project = 0
+    num_students_unfavorable = 0
+    for stud in range(len(student_list)):
+        student = student_list[stud]
+        satisfaction = student.project_preferences[best_chromosome.chrom[stud]]
+        total_satisfaction += satisfaction
+        if satisfaction > 0:
+            num_students_picked_project += 1
+        else:
+            num_students_unfavorable += 1
+    print ("Total satisfaction:\n", total_satisfaction)
+    print ("Max satisfaction:\n", max_satisfaction)
+    print ("# students in projects they picked:", num_students_picked_project)
+    print ("# students in projects they did not pick:", num_students_unfavorable)
     print ("Final fitness: \n", best_chromosome.fitness)
     print ("Num students per project: \n", best_chromosome.num_student_per_project)
+    print ("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
     # print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
+
 
 if __name__ == '__main__':
     main()

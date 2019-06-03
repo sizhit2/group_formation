@@ -78,7 +78,8 @@ def repair_ind_dv_matrix(individual, max_per_project, student_list):
                 if individual.num_student_per_project[crowded_proj] <= max_per_project:
                     break  # break out of student loop
         if individual.num_student_per_project[crowded_proj] > max_per_project:
-            print("infeasible project: " + str(crowded_proj))
+            # print("infeasible project: " + str(crowded_proj))
+            pass
     return individual
 
 def compute_and_fix(population, max_per_project, student_list):
@@ -102,6 +103,7 @@ def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_g
             sigma += (((individual.num_student_per_project[i]) - avg_size_group) / avg_size_group)**2
         sigma = sigma / individual.num_projects
 
+    sigma_gpa = 0
     if abs(gamma_gpa) > 0.0:
         fictitious_num_students = np.zeros(individual.num_projects)
         for stud in range(individual.num_students):
@@ -115,7 +117,6 @@ def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_g
             for proj in range(individual.num_projects):
                 fictitious_num_students[proj] += individual.dv_matrix[stud, proj]
                 individual.avg_gpa_per_project[proj] += pair_gpa * individual.dv_matrix[stud, proj]
-            sigma_gpa = 0
         for proj in range(individual.num_projects):
             if fictitious_num_students[proj] != 0:
                 individual.avg_gpa_per_project[proj] /= fictitious_num_students[proj]
