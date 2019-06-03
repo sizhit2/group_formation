@@ -30,11 +30,12 @@ class Individual(object):
         self.num_projects = num_projects            # number of projects
         self.num_students = num_students            # number of students
         self.parent = parent                        # parents of the offspring
+        self.n_cross = n_cross
 
-        self.chrom = np.zeros(num_projects + num_students)              # chromosome string for the individual
-        self.dv_matrix = np.zeros((num_students, num_projects))         # associated student preference matrix (Design Variable Matrix)
+        self.chrom = np.zeros(num_projects + num_students, dtype=int)              # chromosome string for the individual
+        self.dv_matrix = np.zeros((num_students, num_projects), dtype=int)         # associated student preference matrix (Design Variable Matrix)
         self.avg_gpa_per_project = np.zeros(num_projects)               # list of num_projects elements
-        self.num_student_per_project = np.zeros(num_projects)           # list of num_projects elements
+        self.num_student_per_project = np.zeros(num_projects, dtype=int)           # list of num_projects elements
         self.selected_project_to_swap = np.zeros(n_cross)               # projects transferred from father to offspring
 
         self.fitness = 0.0                          # fitness of the individual - associated to cost function

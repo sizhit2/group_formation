@@ -50,7 +50,5 @@ def main():
         population = repair_dv_matrix(population, max_students_per_proj, student_pref_matrix, student_list)
 
 
-
-
 if __name__ == '__main__':
     main()
