@@ -86,7 +86,67 @@ def compute_and_fix(population, max_per_project, student_list):
     population = repair_dv_matrix(population, max_per_project, student_list)
     return population
 
+def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_gpa, avg_size_group = 5, gamma_gpa=0.0, gamma=0.0):
+    satisfaction_score = 0
+    for (i, proj) in enumerate(individual.chrom[:individual.num_students]):
+        # Student i was assigned project proj
+        student = student_list[i]
+        satisfaction_score += student.project_preferences[proj]
+    # Normalize the satisfaction_score based on max_satisfaction
+    satisfaction_score = satisfaction_score / max_satisfaction
 
+    # Cost associated with number of students per group
+    sigma = 0
+    if abs(gamma) > 0.0:
+        for i in range(individual.num_projects):
+            sigma += (((individual.num_student_per_project[i]) - avg_size_group) / avg_size_group)**2
+        sigma = sigma / individual.num_projects
+
+    if abs(gamma_gpa) > 0.0:
+        fictitious_num_students = np.zeros(individual.num_projects)
+        for stud in range(individual.num_students):
+            # Account for partners
+            pair_gpa = student_list[stud].gpa
+            if (student_list[stud].selected_partner):
+                pair_gpa += student_list[stud].partner_gpa
+                pair_gpa = pair_gpa / 2
+
+            # Add all GPAs per project
+            for proj in range(individual.num_projects):
+                fictitious_num_students[proj] += individual.dv_matrix[stud, proj]
+                individual.avg_gpa_per_project[proj] += pair_gpa * individual.dv_matrix[stud, proj]
+            sigma_gpa = 0
+        for proj in range(individual.num_projects):
+            if fictitious_num_students[proj] != 0:
+                individual.avg_gpa_per_project[proj] /= fictitious_num_students[proj]
+                sigma_gpa += (individual.avg_gpa_per_project[proj] - class_avg_gpa) ** 2
+        sigma_gpa /= individual.num_projects
+
+    individual.fitness = satisfaction_score
+    if sigma > 0:
+        individual.fitness += gamma * (1.0 - sigma)
+    if sigma_gpa > 0:
+        individual.fitness += gamma_gpa * (1.0 - sigma_gpa)
+
+    individual.cost_function_value = individual.fitness
+    return individual
+
+def evaluate_fitness(population, student_list, max_satisfaction, class_avg_gpa, avg_size_group = 5, gamma_gpa=0.0, gamma=0.0):
+    for individual in population:
+        individual = evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
+    return population
+
+def get_class_avg_gpa(student_list):
+    sigma_gpa = 0.0
+    num_students = 0
+    for student in student_list:
+        if student.selected_partner:
+            sigma_gpa += (student.gpa + student.partner_gpa) / 2.0
+            num_students += 2
+        else:
+            sigma_gpa += student.gpa
+            num_students += 1
+    return sigma_gpa / num_students
 
 def test_main():
     num_projects = 27
@@ -114,7 +174,6 @@ def test_main():
     print(sum(ind.num_student_per_project))
 
     print(len([stud for stud in student_list if stud.selected_partner]))
-
 
 if __name__ == '__main__':
     test_main()

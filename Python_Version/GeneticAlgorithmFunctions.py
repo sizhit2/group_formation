@@ -7,52 +7,65 @@ from Initialize import *
 
 def roulette_wheel(population):
     size = len(population)
-    # temp_s = 0.0
-    # pick = np.random.rand()
-    # i = 0
-    # while i < size and temp_s < pick:
-    #     temp_s += np.random.rand() / 4
-    #     # temp_s += population[i].fitness
-    #     i += 1
-    #
-    # if i > 0:
-    #     return (i-1)
-    # return i
-    return np.random.randint(0, high=size)
+    temp_s = 0.0
+    pick = 1 + np.random.rand()
+
+    i = 0
+    while i < size and temp_s < pick:
+        temp_s += population[i].fitness
+        i += 1
+
+    if i > 0:
+        return (i-1)
+    return i
 
 
-'''Assumes that population is sorted by fitness/cost value in descending order'''
+'''Assumes that population is sorted by fitness/cost value in descending order.
+    Returns a new population based on breeding of the old population. '''
 def crossover_with_random_offspring_generation(population, n_keep, crossover_prob):
     population_size = len(population)
     new_population = []
+
+    # Keep the best n_keep individuals from the last generation
     for i in range(n_keep):
         ind = copy.copy(population[i])
         ind.parent = [i, i]
         new_population.append(ind)
 
+    # Just to gather variables
     temp_ind = population[0]
     num_projects = temp_ind.num_projects
     num_students = temp_ind.num_students
     n_cross = temp_ind.n_cross
 
+    # Add individuals to the new population. If crossover occurs, then an
+    # individual will share parts of its chromosome with 2 individuals from
+    # the old population. Else, the chromosome is randomly generated.
     while len(new_population) < population_size:
         flip = np.random.rand()
         if flip < crossover_prob:
             father_index = roulette_wheel(population)
             mother_index = roulette_wheel(population)
-            while mother_index == father_index:
+            while mother_index == father_index: # Ensure to inherit from different parents
                 mother_index = roulette_wheel(population)
+
             parents = [mother_index, father_index]
             ind = Individual(num_projects, num_students, n_cross, parent=parents)
             ind.chrom = np.array(population[mother_index].chrom)
+
+            swapped_projects = []
+            # For the n_cross points of crossover
             for k in range(n_cross):
                 select_project = np.random.randint(0, high=num_projects)
-                if k > 0 and select_project in ind.selected_project_to_swap: # don't repeat swaps
+
+                if select_project in swapped_projects: # don't repeat swaps
                     continue
                 for stud in range(num_students):
                     if population[father_index].chrom[stud] == select_project:
                         ind.chrom[stud] = select_project
+
                 ind.selected_project_to_swap[k] = select_project
+                swapped_projects.append(select_project)
         else: # if flip > crossover prob, generate at random
             parent = len(new_population) - 1
             ind = Individual(num_projects, num_students, n_cross, parent=[parent, parent])
