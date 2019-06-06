@@ -6,14 +6,14 @@
 /* so that it is guaranteed they stay in the same group
 /* Input file of version 8 is different than version 7
 /******************************************************************************/
-#include "stdafx.h"
+// #include "stdafx.h"
 #include <stdlib.h>
 #include <string.h>
 #include <cmath>
 #include <time.h>
 #include <iomanip>
 #include <iostream>
-#include <windows.h>
+// #include <windows.h>
 
 //=========================================//
 // INCLUDE ARMADILLO LIBRARY DEFINITIONS
@@ -37,7 +37,7 @@ using namespace std;
 
 static char help[] = "This program create Senior Design Team based on Student's Preference";
 
-int _tmain(int argc, _TCHAR* argv[])
+int _tmain(int argc, char* argv[])
 {
 	std::string filename;						//Input file name
 	int NumberOfStudents;						//Number of students taking the course
@@ -45,9 +45,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	int MaximumNumberStudentsPerProject;		//Maximum number of students per project
 	int MinimumNumberSelectedProjects;			//Minimum number of projects that students should rank
 	int PopulationSize;							//Number of chromosomes in the population
-	int N_Keep;									//Number of chromosomes to keep in the next generation	
+	int N_Keep;									//Number of chromosomes to keep in the next generation
 	int N_cross;								//Number of groups that will be swapped during crossover operation
-	double MutationProbability;					//Probability of mutation 
+	double MutationProbability;					//Probability of mutation
 	double CrossoverProbability;				//Probability of crossover
 	int iteration;								//iteration number (generation)
 	int Max_Iteration;							//maximum number of iterations
@@ -67,19 +67,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	struct Individual BestChromosome;			//This is the most adapted chromosome with the optimized solution
 	arma::imat AuxPopulation;
 	arma::mat  StudentPreferenceMatrix;
-	arma::uvec RankingPopulation; 	
+	arma::uvec RankingPopulation;
 	//RankingPopulation(0) = chromossome index with highest fitness value
 	//RankingPopulation(1) = chromossome index with second highest fitness value ...
 	arma::uvec CountPreference;
 
-	//*************************************************************************************/  
+	//*************************************************************************************/
 	// For debugging purposes, the seeding is fixed
 	//arma::arma_rng::set_seed(4);
-	// Randomize the seeding 
+	// Randomize the seeding
 	arma::arma_rng::set_seed_random() ;
-	//*************************************************************************************/  
+	//*************************************************************************************/
 
-	//*************************************************************************************/  
+	//*************************************************************************************/
 	// Open file for output optimization results
 	std::ofstream fout("optimization_history.txt");
 	std::ofstream fileout("Results.csv");
@@ -87,17 +87,17 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::ofstream fout2("percentual_history.csv");
 	std::ofstream foutdebug("Debugging.txt");
 	/*************************************************************************************/
-	
+
 
 
 	/************************************************************************************/
 	/***************** Input data - read from "input_Data.txt" **************************/
 	//************************************************************************************/
 	 ReadInputData(filename, NumberOfStudents, NumberOfProjects, MinimumNumberSelectedProjects,
-		MaximumNumberStudentsPerProject , PopulationSize, N_Keep, N_cross, MutationProbability, 
+		MaximumNumberStudentsPerProject , PopulationSize, N_Keep, N_cross, MutationProbability,
 		CrossoverProbability, Max_Iteration, tol, gamma, gamma_gpa, reassign);
 	//************************************************************************************/
-	 
+
 	//************************************************************************************/
 	// Initializing vector and matrices sizes
 	Student = CreateVectorStudentInfo(0,NumberOfStudents);
@@ -123,7 +123,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	std::cout<<"Before reading Excel Input Data\n";
-	//*************************************************************************************/  
+	//*************************************************************************************/
 	// Read data from excel file (ugradrecs)
 	ReadDataFromExcelSpreadsheet (NumberOfProjects, Student, StudentPreferenceMatrix, filename);
 	// Get the maximum value of the cost function - evaluated when students get their first preference
@@ -147,16 +147,16 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//	//-----------------------------
 	//	// Build design variable matrix
-	//	//-----------------------------	
+	//	//-----------------------------
 		DesignVariableMatrix (OldPopulation,PopulationSize,NumberOfStudents,NumberOfProjects);
-	
+
 		//-----------------------------------------------------------------------------------------------------------
 		// Move students from overly crowded projects to other less populated projects based on student's preferences
 		//-----------------------------------------------------------------------------------------------------------
 		RepairDesignVariableForInfeasibility(OldPopulation, PopulationSize, NumberOfStudents, NumberOfProjects, Student, MaximumNumberStudentsPerProject,StudentPreferenceMatrix);
 
 		//---------------------
-		// Evaluate function 
+		// Evaluate function
 		//---------------------
 		costval = CostFunction (StudentPreferenceMatrix, OldPopulation, BestChromosome, Student, PopulationSize, NumberOfStudents, NumberOfProjects, gamma_gpa, gamma, tol,
 								RankingPopulation, maxcost, change_costfunction, MaximumNumberStudentsPerProject, ClassAverageGPA, reassign, iteration, foutdebug);
@@ -180,30 +180,30 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (iter_check > 30 && converged == true) break;
 		//--------------------
 		// ga operations
-		//--------------------		
+		//--------------------
 		CrossoverWithRandomOffspringGeneration (NewPopulation, OldPopulation, RankingPopulation, PopulationSize, NumberOfStudents, NumberOfProjects, N_Keep, N_cross, CrossoverProbability);
-		
+
 		Mutation (NewPopulation,PopulationSize, NumberOfStudents, MutationProbability, N_Keep);
-		
+
 		UpdatePopulation (NewPopulation, OldPopulation, PopulationSize, NumberOfStudents);
-		
+
 		iteration ++;
 
 	} while (iteration < Max_Iteration);
 	//*************************************************************************************/
 
-	
+
 	PrintFinalResults( Student, NumberOfStudents, NumberOfProjects, BestChromosome, StudentPreferenceMatrix, fileout, fileout2);
 
 	std::cout<<BestChromosome.AverageGPAPerProject<<std::endl;
-	
+
 	system("pause");
 
 	fout.close();
 	fout2.close();
 	fileout.close();
 	fileout2.close();
-	
+
 	return 0;
 
 }

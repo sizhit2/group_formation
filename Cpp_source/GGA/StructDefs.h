@@ -1,4 +1,8 @@
 using namespace std;
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "armadillo"
 
 
 struct MyStudent *CreateVectorStudentInfo(int li, int lf);
@@ -8,15 +12,15 @@ struct Individual *CreateVectorChromosomeInfo(int li, int lf);
 // Defining structure to store student information
 //===================================================================================//
 struct MyStudent {
-	int uin;		
+	int uin;
 	double GPA;
 	int SelectedPartner;
-	char LastName[40]; 
+	char LastName[40];
 	char FirstName[40];
-	char PartnerLastName[40]; 
+	char PartnerLastName[40];
 	char PartnerFirstName[40];
 	double PartnerGPA;
-	//std::string LastName; 
+	//std::string LastName;
 	//std::string FirstName;
 };
 //===================================================================================//
@@ -36,8 +40,8 @@ struct Individual
 	//double     adaptpercent;          /* how adapt the individual is comparing to the rest of the population - ranking */
     arma::ivec SelectedProjectToSwap;   /* projects transferred from father to offspring */
     arma::ivec parent;                  /* parents of the offspring */
-	arma::imat DesignVariableMatrix;    // associated with the StudentPreference matrix 
-	arma::vec  AverageGPAPerProject;    
+	arma::imat DesignVariableMatrix;    // associated with the StudentPreference matrix
+	arma::vec  AverageGPAPerProject;
 	arma::ivec NumberOfStudentPerProject;
 };
 //===================================================================================//

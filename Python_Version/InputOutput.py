@@ -48,7 +48,7 @@ def parse_input_data(in_filename):
         line = line.rstrip('\n')
         if i == 0:
             pass
-        elif i in [6, 7, 12, 13, 14]:
+        elif i in [6, 7, 10, 12, 13, 14]:
             line = float(line)
         else:
             line = int(line)

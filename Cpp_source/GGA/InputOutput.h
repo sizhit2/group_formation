@@ -1,7 +1,5 @@
 #ifndef INPUT_OUTPUT_H
 
-using namespace std;
-
 #include "StringFunctions.h"
 
 //void ReadDataFromExcelSpreadsheet (struct MyStudent *Student, arma::mat& StudentPreferenceMatrix);
@@ -39,7 +37,7 @@ void ReadDataFromExcelSpreadsheet (int NumberOfProjects, struct MyStudent *Stude
 			Student[i].SelectedPartner = std::stoi(cell);
 			//std::getline(MylineStream,cell,','); 				// standing
 			for (int j=0;j<NumberOfProjects;j++) {
-				std::getline(MylineStream,cell,',');	
+				std::getline(MylineStream,cell,',');
 				//std::cout<<"i = "<<i<<" j = "<<j<<"preference "<<std::stod(cell)<<"\n";
 				StudentPreferenceMatrix(i,j) = std::stod(cell);
 			}
@@ -52,7 +50,7 @@ void ReadDataFromExcelSpreadsheet (int NumberOfProjects, struct MyStudent *Stude
 				Student[i].PartnerGPA = std::stod(cell);
 			}
 
-		i++;				
+		i++;
 		}
 	}
 	std::cout<<"Finished reading input file...\n";
@@ -88,7 +86,7 @@ void PrintFinalResults(struct MyStudent *Student, int NumberOfStudents, int Numb
 	// Creating table with final groups and their "satisfaction" level
 	double groupfitness;
 
-	for (int s=0;s<NumberOfStudents; s++) {		
+	for (int s=0;s<NumberOfStudents; s++) {
 		strcat(Student[s].FirstName, " ");
 		strcat(Student[s].FirstName, Student[s].LastName);
 		if (Student[s].SelectedPartner == 1){
@@ -114,7 +112,7 @@ void PrintFinalResults(struct MyStudent *Student, int NumberOfStudents, int Numb
 		fileout2<<"\n";
 	}
 
-	
+
 
 }
 
@@ -139,13 +137,13 @@ void EvaluatePercentStudentAllocatedinPreferredProject(int NumberOfStudents, int
 		Option(0) = 0;
 		for (int j=1;j<MinimumNumberSelectedProjects;j++) {
 
-			temp1 = PreferenceOrder(j); 
+			temp1 = PreferenceOrder(j);
 			temp2 = PreferenceOrder(j-1);
 
 			if (StudentPreferenceMatrix(i,temp1) == StudentPreferenceMatrix(i,temp2)) {
 				Option(j) = Option(j-1);
 			}
-			else Option(j) = Option(j-1) + 1; 
+			else Option(j) = Option(j-1) + 1;
 		}
 
 		for (int j=0;j<MinimumNumberSelectedProjects;j++) {
@@ -184,11 +182,11 @@ void PrintHistoryInfo (int iteration, int PopulationSize, int NumberOfStudents, 
 		fout<<"("<<OldPopulation[i].parent(0)<<","<<OldPopulation[i].parent(1)<<")|(";
 		for (int j=0; j<N_cross; j++){
 			fout<<OldPopulation[i].SelectedProjectToSwap(j)<<",";
-		}		
+		}
 		fout<<")\n";
 	}
 	//fout<<"\n";
-		
+
 }
 //===============================================================================================================================//
 void ReadInputData(std::string & filename, int & NumberOfStudents, int & NumberOfProjects, int & MinimumNumberSelectedProjects,
@@ -199,19 +197,19 @@ void ReadInputData(std::string & filename, int & NumberOfStudents, int & NumberO
 /*************************************************************************/
 /*             Get data info from input file                             */
 /*************************************************************************/
-	std::ifstream finp("input_Data.txt");	
+	std::ifstream finp("input_Data.txt");
 	std::string   keyword;
 	size_t   found;
 	if (finp.is_open()) {
-	
-		while(!finp.eof()) {	
-			
-			getline(finp, keyword);		
+
+		while(!finp.eof()) {
+
+			getline(finp, keyword);
 			trim1(keyword);
-		
-			found=keyword.find("##");		
+
+			found=keyword.find("##");
 			if (found!=std::string::npos)  continue;
-			
+
 			if (keyword == "#Filename")  {
 				finp >> filename;
 				continue;
@@ -272,9 +270,9 @@ void ReadInputData(std::string & filename, int & NumberOfStudents, int & NumberO
 				finp >> gamma_gpa;
 				continue;
 			}
-			
+
 		}
-		
+
 	} else {
 		std::cout<<"Cannot open Input_Data.txt. Abort"<<std::endl;
 		exit(-1);
@@ -282,7 +280,6 @@ void ReadInputData(std::string & filename, int & NumberOfStudents, int & NumberO
 
 	finp.close();
 
-}	
+}
 
 #endif
-

@@ -5,8 +5,6 @@ import numpy as np
 
 '''Function that creates the design variable matrix for all individuals in the given population.
     Mutates the population parameter, and returns it.'''
-
-
 def fill_dv_matrix(population):
     '''The chrom field is a list of size num_students which holds which project the student is
     assigned. '''
@@ -14,7 +12,7 @@ def fill_dv_matrix(population):
         individual = fill_ind_dv_matrix(individual)
     return population
 
-
+'''Fills design variable matrix based on projects assigned by the chromosome.'''
 def fill_ind_dv_matrix(individual):
     for j in range(individual.num_students):
         k = individual.chrom[j]
@@ -25,14 +23,13 @@ def fill_ind_dv_matrix(individual):
 '''Function that calculates number of students per projects
     for all individuals in the given population. Non-trivial, as some students
     can select a partner. Mutates the population parameter, and returns it.'''
-
-
 def get_num_students_per_project(population, student_list):
     for individual in population:
         individual = get_ind_students_per_project_ind(individual, student_list)
     return population
 
-
+'''Calculates number of students per project for an individual. Non-trivial, as
+students can select a partner.'''
 def get_ind_students_per_project_ind(individual, student_list):
     for j in range(individual.num_students):
         if student_list[j].selected_partner:
@@ -52,9 +49,9 @@ def repair_dv_matrix(population, max_per_project, student_list):
         individual = repair_ind_dv_matrix(individual, max_per_project, student_list)
     return population
 
-
+'''Attempts to fix infeasibility (more than max_per_project students assigned to a project),
+does not stop for infeasible projects. Mutates the individual, and returns'''
 def repair_ind_dv_matrix(individual, max_per_project, student_list):
-
     for proj in range(individual.num_projects):
         if individual.num_student_per_project[proj] <= max_per_project:
             continue
@@ -82,11 +79,18 @@ def repair_ind_dv_matrix(individual, max_per_project, student_list):
             pass
     return individual
 
+'''Fills the design variable matrix for each individual in a population and attempts
+to fix for infeasibility. With certain chromosomes it may be impossible, but the
+algorithm will not stop for this. Mutates and returns the population parameter.'''
 def compute_and_fix(population, max_per_project, student_list):
     population = fill_dv_matrix(population)
     population = repair_dv_matrix(population, max_per_project, student_list)
     return population
 
+'''Evaluates the fitness of a given individual in a population. The fitness is
+a combination of student satisfaction, variance of number of students in each project,
+and the variance of the average gpa per project. Tries to minimize the variances,
+and maximize the student satisfaction.'''
 def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_gpa, avg_size_group = 5, gamma_gpa=0.0, gamma=0.0):
     satisfaction_score = 0
     for (i, proj) in enumerate(individual.chrom[:individual.num_students]):
@@ -103,6 +107,7 @@ def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_g
             sigma += (((individual.num_student_per_project[i]) - avg_size_group) / avg_size_group)**2
         sigma = sigma / individual.num_projects
 
+    # Cost associated with average GPA per project
     sigma_gpa = 0
     if abs(gamma_gpa) > 0.0:
         fictitious_num_students = np.zeros(individual.num_projects)
@@ -117,12 +122,15 @@ def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_g
             for proj in range(individual.num_projects):
                 fictitious_num_students[proj] += individual.dv_matrix[stud, proj]
                 individual.avg_gpa_per_project[proj] += pair_gpa * individual.dv_matrix[stud, proj]
+
+        # Getting variance of average GPA per project
         for proj in range(individual.num_projects):
             if fictitious_num_students[proj] != 0:
                 individual.avg_gpa_per_project[proj] /= fictitious_num_students[proj]
                 sigma_gpa += (individual.avg_gpa_per_project[proj] - class_avg_gpa) ** 2
         sigma_gpa /= individual.num_projects
 
+    # Combine the 3 costs to get the final fitness
     individual.fitness = satisfaction_score
     if sigma > 0:
         individual.fitness += gamma * (1.0 - sigma)
@@ -132,11 +140,13 @@ def evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_g
     individual.cost_function_value = individual.fitness
     return individual
 
+'''Evaluates fitness of each individual of a population, updates and returns it.'''
 def evaluate_fitness(population, student_list, max_satisfaction, class_avg_gpa, avg_size_group = 5, gamma_gpa=0.0, gamma=0.0):
     for individual in population:
         individual = evaluate_ind_fitness(individual, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
     return population
 
+'''Calculates average gpa of the class. '''
 def get_class_avg_gpa(student_list):
     sigma_gpa = 0.0
     num_students = 0
@@ -148,6 +158,58 @@ def get_class_avg_gpa(student_list):
             sigma_gpa += student.gpa
             num_students += 1
     return sigma_gpa / num_students
+
+'''Reassigns students in the top 5 percent of fit individuals. Assumes that the population
+comes in sorted by fitness. Only does the reassign if it increases the fitness.
+Evaluate fitness once again after reassign. '''
+def reassign_students(population, student_list, reassign_prob, max_per_project):
+    for i in range(len(population) // 20):
+        ind = population[i]
+        for j in range(ind.num_students):
+            student = student_list[j]
+            assigned_proj = ind.chrom[j]
+            found = False
+            reassign_student = True
+
+            # Account for partners
+            if (student.selected_partner):
+                add = 2
+            else:
+                add = 1
+
+            if reassign_prob < 1:
+                flip = np.random.rand()
+                if flip > reassign_prob: # Reassign students with probability reassign_prob
+                     reassign_student = False
+
+            # If the student is assigned an unfavorable project, and reassign is true
+            if student.project_preferences[assigned_proj] == 0 and reassign_student:
+                tentative_projs = np.argsort(student.project_preferences)[::-1]
+                for tentative_proj in tentative_projs:
+                    # If we only have unfavorable projects, skip and don't reassign
+                    if student.project_preferences[tentative_proj] == 0:
+                        break
+
+                    # We are assured that the student prefers tentaive project,
+                    # so this should increase fitness
+                    if ind.num_student_per_project[tentative_proj] <= (max_per_project - add):
+                        ind.chrom[j] = tentative_proj
+                        ind.dv_matrix[j, tentative_proj] = 1
+                        ind.dv_matrix[j, assigned_proj] = 0
+                        ind.num_student_per_project[tentative_proj] += add
+                        ind.num_student_per_project[assigned_proj] -= add
+                        found = True
+                        break
+    return population
+
+def get_num_satisfied_students(individual, student_list):
+    num_students_picked_project = 0
+    for stud in range(len(student_list)):
+        student = student_list[stud]
+        satisfaction = student.project_preferences[individual.chrom[stud]]
+        if satisfaction > 0:
+            num_students_picked_project += 1
+    return num_students_picked_project
 
 def test_main():
     num_projects = 27
