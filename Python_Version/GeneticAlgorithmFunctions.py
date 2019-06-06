@@ -6,9 +6,10 @@ from OptimizationFunctions import *
 from Initialize import *
 
 def roulette_wheel(population):
-    size = len(population)
+    # return np.random.randint(0, high=len(population))
+    size = len(population) // 2
     temp_s = 0.0
-    pick = 1 + np.random.rand()
+    pick = np.random.rand()
 
     i = 0
     while i < size and temp_s < pick:
@@ -46,8 +47,8 @@ def crossover_with_random_offspring_generation(population, n_keep, crossover_pro
         if flip < crossover_prob:
             father_index = roulette_wheel(population)
             mother_index = roulette_wheel(population)
-            while mother_index == father_index: # Ensure to inherit from different parents
-                mother_index = roulette_wheel(population)
+            # while mother_index == father_index: # Ensure to inherit from different parents
+            #     mother_index = roulette_wheel(population)
 
             parents = [mother_index, father_index]
             ind = Individual(num_projects, num_students, n_cross, parent=parents)

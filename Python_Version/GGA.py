@@ -8,7 +8,8 @@ import copy
 import time
 
 def run_ga():
-    in_data = parse_input_data('../data/input_data.txt')
+    dir = '../data/'
+    in_data = parse_input_data(dir+'input_data.txt')
 
     # For the design variable matrix
     data_filename = in_data[0]
@@ -34,7 +35,7 @@ def run_ga():
     gamma_gpa = 0 # Comment out this line when considering GPA
 
     print ("Reading Excel data....")
-    student_list = read_from_csv("../data/StudentPreferenceSpring2019_PredetTeamRemoved.csv", (num_projects+1))
+    student_list = read_from_csv(dir+data_filename, num_projects)
     student_pref_matrix = np.zeros((num_students, num_projects))
     max_satisfaction = 0
     for i, student in enumerate(student_list):
@@ -153,6 +154,10 @@ def run_ga():
     return (total_satisfaction, most_satisfied, best_chromosome.fitness, best_chromosome.num_student_per_project,
             iter, seconds_taken)
 
+# Temporary to run on new data
+def t_main():
+    run_ga()
+
 def main():
     num_iter = 5
     ga_results = []
@@ -176,6 +181,10 @@ def main():
             if result[0] > best_satisfaction:
                 bsat_index = i
                 best_satisfaction = result[0]
+            if result[1] == most_satisfied:
+                if result[0] == best_satisfaction:
+                    msat_index = i
+                    most_satisfied = result[1]
             if result[1] > most_satisfied:
                 msat_index = i
                 most_satisfied = result[1]

@@ -22,11 +22,11 @@ def read_from_csv(filename, num_projects):
         project_preferences = np.zeros(num_projects)
         ind = 0
         for i in range(num_projects):
-            if i == 4:              # Temporary, because Project 5 does not exist
-                continue
+            # if i == 4:              # Temporary, because Project 5 does not exist
+            #     continue
             project_preferences[ind] = reader['Project ' + str(i+1)][row]
             ind += 1
-        project_preferences = project_preferences[:-1] # To fix an off-by-one error
+        # project_preferences = project_preferences[:-1] # To fix an off-by-one error
 
         student = Student(gpa, selected_partner, last_name, first_name)
         student.update_project_preferences(project_preferences)
@@ -59,10 +59,11 @@ def parse_input_data(in_filename):
 
 '''Void function to test functionality implemented in this file'''
 def test_main():
-    student_list = read_from_csv("../data/StudentPreferenceSpring2019_PredetTeamRemoved.csv", num_projects=28)
+    student_list = read_from_csv("../data/Run10_noGPAweight/StudentPreferenceSpring2018.csv", num_projects=23)
     # print (len(student_list))
     print (student_list[2].project_preferences)
-    in_data = parse_input_data('../data/input_data.txt')
+    print (len(student_list[2].project_preferences))
+    in_data = parse_input_data("../data/Run10_noGPAweight/input_data.txt")
     print (len(in_data))
     print (in_data)
     # individualList = []
