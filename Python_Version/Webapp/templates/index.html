@@ -17,8 +17,49 @@
         <input type="text" name="MinimumNumberSelectedProjects"><br>
 
         Maximum number of students per each project:<br>
-        <input type="text" name = MaximumNumberStudentsPerProject"><br>
+        <input type="text" name = "MaximumNumberStudentsPerProject"><br>
 
+
+        Population size:<br>
+        <input type="text" name = "PopulationSize"><br>
+
+
+        Probability of crossover:<br>
+        <input type="text" name = "CrossoverProbability"><br>
+
+
+        Probability of mutation:<br>
+        <input type="text" name = "MutationProbability"><br>
+
+        Number of chromosomes to be kept in the next generation:<br>
+        <input type="text" name = "N_Keep"><br>
+
+        Number of locations in which crossover occurs:<br>
+        <input type="text" name = "N_cross"><br>
+
+        Reassign students that are not placed in desired project? :
+         0 = NO
+         negative number: reassign only done after algorithm has achieved some predefined convergence check
+         positive number: reassign is done for every optimization iteration
+         1 = reassign all students that are not placed at desired project
+         2 = reassign all students that are not placed at desired project IF objective function increases
+         0 < X < 1 = reassign students that are not placed at desired project with probability X 
+        
+        <br>
+        <input type="text" name = "reassign"><br>
+
+        Maximum number of optimization iterations:<br>
+        <input type="text" name = "MaxIteration"><br>
+
+        Cost function change tolerance:<br>
+        <input type="text" name = "costtol"><br>
+
+        Enter weight parameter to balance number of student per project (0 when term is not part of cost function):<br>
+        <input type="text" name = "gamma"><br>
+
+        Enter weight paramter to balance gpa average of each team (0 when term is not part of cost fucntion ):<br>
+        <input type="text" name = "gamma_gpa"><br>
+       
 
 
         <br>
