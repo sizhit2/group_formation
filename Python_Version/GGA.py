@@ -7,8 +7,7 @@ from GeneticAlgorithmFunctions import *
 import copy
 import time
 
-def run_ga():
-    dir = '../data/'
+def run_ga(dir='../data/'):
     in_data = parse_input_data(dir+'input_data.txt')
 
     # For the design variable matrix

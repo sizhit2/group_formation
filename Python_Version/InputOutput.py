@@ -12,7 +12,7 @@ Reads the CSV file with student info to create a list of student objects
 """
 def read_from_csv(filename, num_projects):
     student_list = []
-    reader = pd.read_csv(filename,delimiter = ',')
+    reader = pd.read_csv(filename, delimiter=',')
     for row in range(reader.shape[0]):
         last_name = reader['Last Name'][row]
         first_name = reader['First Name'][row]
@@ -24,7 +24,7 @@ def read_from_csv(filename, num_projects):
         for i in range(num_projects):
             # if i == 4:              # Temporary, because Project 5 does not exist
             #     continue
-            project_preferences[ind] = reader['Project ' + str(i+1)][row]
+            project_preferences[ind] = reader['Project ' + str(i + 1)][row]
             ind += 1
         # project_preferences = project_preferences[:-1] # To fix an off-by-one error
 
@@ -37,6 +37,7 @@ def read_from_csv(filename, num_projects):
             student.update_partner_info(partner_last, partner_first, partner_gpa)
         student_list.append(student)
     return student_list
+
 
 def parse_input_data(in_filename):
     in_data_file = open(in_filename, 'r+')
@@ -56,17 +57,19 @@ def parse_input_data(in_filename):
     return in_data
 
 
-
 '''Void function to test functionality implemented in this file'''
+
+
 def test_main():
     student_list = read_from_csv("../data/Run10_noGPAweight/StudentPreferenceSpring2018.csv", num_projects=23)
     # print (len(student_list))
-    print (student_list[2].project_preferences)
-    print (len(student_list[2].project_preferences))
+    print(student_list[2].project_preferences)
+    print(len(student_list[2].project_preferences))
     in_data = parse_input_data("../data/Run10_noGPAweight/input_data.txt")
-    print (len(in_data))
-    print (in_data)
+    print(len(in_data))
+    print(in_data)
     # individualList = []
+
 
 if __name__ == '__main__':
     test_main()
