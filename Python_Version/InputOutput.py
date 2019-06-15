@@ -5,12 +5,14 @@ from StructDef import Student
 import pandas as pd
 import numpy as np
 
-"""
-Reads the CSV file with student info to create a list of student objects
-:param filename: csv file to read from
-:return: student_list (list of student objects, class roster with partners)
-"""
 def read_from_csv(filename, num_projects):
+    """
+    Reads the CSV file with student info to create a list of student objects. Ensure that projects are numbered
+    contiguously, else parsing correctness is not assured.
+    :param filename: csv file to read. format for CSV must be followed
+    :param num_projects: number of projects in simulation
+    :return: list of Student objects for the class
+    """
     student_list = []
     reader = pd.read_csv(filename, delimiter=',')
     for row in range(reader.shape[0]):
@@ -22,11 +24,8 @@ def read_from_csv(filename, num_projects):
         project_preferences = np.zeros(num_projects)
         ind = 0
         for i in range(num_projects):
-            # if i == 4:              # Temporary, because Project 5 does not exist
-            #     continue
             project_preferences[ind] = reader['Project ' + str(i + 1)][row]
             ind += 1
-        # project_preferences = project_preferences[:-1] # To fix an off-by-one error
 
         student = Student(gpa, selected_partner, last_name, first_name)
         student.update_project_preferences(project_preferences)
@@ -40,6 +39,11 @@ def read_from_csv(filename, num_projects):
 
 
 def parse_input_data(in_filename):
+    """
+    Grabs input parameters to the GA simulation from a text file.
+    :param in_filename: file to read for values
+    :return: list of values to initialize the GA simulation.
+    """
     in_data_file = open(in_filename, 'r+')
     in_data_lines = in_data_file.readlines()
 
@@ -56,10 +60,7 @@ def parse_input_data(in_filename):
         in_data.append(line)
     return in_data
 
-
-'''Void function to test functionality implemented in this file'''
-
-
+# Void function to test functionality implemented here
 def test_main():
     student_list = read_from_csv("../data/Run10_noGPAweight/StudentPreferenceSpring2018.csv", num_projects=23)
     # print (len(student_list))
