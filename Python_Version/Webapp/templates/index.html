@@ -1,71 +1,129 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
+<!-- a special string that browseres look for when try to display our web page-->
 <html>
 <head>
-<title>Page Title</title>
+    <!-- Metadata goes here, including page title, any CSS stylesheets, others required to render the page but don't want the user to see-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Group Formation App</title>
+
+    <!--<link rel='stylesheet'   href= '../static/css/styles.css'></link>-->
+
+
+      <!-- Bootstrap core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/freelancer.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body id="page-top">
+    <!-- Content goes here-->
+    <!--It is common to use h1 heading to match page title-->
+    
 
-    <form method="POST">
-        number of students:<br>
-        <input type="text" name="NumberOfStudents"><br>
 
-        number of projects:<br>
-        <input type="text" name="NumberOfProjects"><br>
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Group Formation App</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login">Log In</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+    </nav>
+            
+      <!-- Header -->
+  <header class="masthead bg-primary text-white text-center " >
+        {% block header %} 
+        <div class="container">
+          
+          <h1 class="text-uppercase mb-0">Group Formation App</h1>
+          <hr class="star-light">
+         
+        </div>
+        {% endblock %}
+    </header>
+
+    <section class="portfolio" id="about">
+            <div class="container">
+              <h2 class="text-center text-uppercase text-secondary mb-0">About</h2>
+              <hr class="star-dark mb-5">
         
-        Minimum number of projects to be selected by each student:<br>
-        <input type="text" name="MinimumNumberSelectedProjects"><br>
-
-        Maximum number of students per each project:<br>
-        <input type="text" name = "MaximumNumberStudentsPerProject"><br>
-
-
-        Population size:<br>
-        <input type="text" name = "PopulationSize"><br>
-
-
-        Probability of crossover:<br>
-        <input type="text" name = "CrossoverProbability"><br>
-
-
-        Probability of mutation:<br>
-        <input type="text" name = "MutationProbability"><br>
-
-        Number of chromosomes to be kept in the next generation:<br>
-        <input type="text" name = "N_Keep"><br>
-
-        Number of locations in which crossover occurs:<br>
-        <input type="text" name = "N_cross"><br>
-
-        Reassign students that are not placed in desired project? :
-         0 = NO
-         negative number: reassign only done after algorithm has achieved some predefined convergence check
-         positive number: reassign is done for every optimization iteration
-         1 = reassign all students that are not placed at desired project
-         2 = reassign all students that are not placed at desired project IF objective function increases
-         0 < X < 1 = reassign students that are not placed at desired project with probability X 
+              <h3 class="text-secondary mb-3"> The goal of group formation app is to run algorithm and find perfect match students with available projects.
+                . </h3>
+              </dic>
+            </section>
+              
         
-        <br>
-        <input type="text" name = "reassign"><br>
-
-        Maximum number of optimization iterations:<br>
-        <input type="text" name = "MaxIteration"><br>
-
-        Cost function change tolerance:<br>
-        <input type="text" name = "costtol"><br>
-
-        Enter weight parameter to balance number of student per project (0 when term is not part of cost function):<br>
-        <input type="text" name = "gamma"><br>
-
-        Enter weight paramter to balance gpa average of each team (0 when term is not part of cost fucntion ):<br>
-        <input type="text" name = "gamma_gpa"><br>
-       
+      
 
 
-        <br>
+    <!--login Section -->
+<section class="bg-white text-primary mb-0" id="login">
+        <div class="container">
+          <h2 class="text-center text-uppercase text-dark">Log In</h2>
+          <hr class="star-dark">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+              <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+              <div class="control-group">
+                    <form action="{{ url_for('student')}}"  method="POST">
+                  <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                    <label>Username</label>
+                    <textarea name = 'Username' class="form-control" id="message" rows="1" placeholder="Username" required="required" data-validation-required-message="Username cannot be empty"></textarea>
+                    <label>Password</label>
+                    <textarea name = 'Password' class="form-control" id="message" rows="1" placeholder="Password" required="required" data-validation-required-message="Password cannot be empty"></textarea>
+                    
+                    <p class="help-block text-danger"></p>
+                    <button type="submit" class="btn btn-light btn-xl" id="sendMessageButton" value = 'student'>Student Log In</button>
+                    </form>
+                  </div>
+                  <form action="{{ url_for('professor')}}"  method="POST">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                          <label>Username</label>
+                          <textarea name = 'Username' class="form-control" id="message" rows="1" placeholder="Username" required="required" data-validation-required-message="Username cannot be empty"></textarea>
+                          <label>Password</label>
+                          <textarea name = 'Password' class="form-control" id="message" rows="1" placeholder="Password" required="required" data-validation-required-message="Password cannot be empty"></textarea>
+                          
+                          <p class="help-block text-danger"></p>
+                          <button type="submit" class="btn btn-light btn-xl" id="sendMessageButton" value = 'student'>Professor Log In</button>
+                          </form>
+                </div>
+               
+            </div>
 
-        <input type="submit" value="Submit">
-    </form>
+
+
+            
+          </div>
+        </div>
+</section>
+            
 
     
 </body>

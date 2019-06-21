@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>Group Formation App - Student Interface</title>
+    
+        <!-- Bootstrap core CSS -->
+        <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Custom fonts for this template -->
+        <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    
+        <!-- Plugin CSS -->
+        <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+    
+        <!-- Custom styles for this template -->
+        <link href="/static/css/freelancer.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+                <div class="container">
+                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Group Formation App</a>
+                    <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#profile">Profile</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1 dropdown">
+                        <a  class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Class
+                        </a>
+                        <div class= "dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Class 1</a>
+                            <a class="dropdown-item" href="#">Class 2</a>
+                        </div>
+                        
+                        </li>
+
+
+
+                    </ul>
+                    </div>
+                </div>
+        </nav>
+
+        <section>
+                
+                <form  class="col-md-6 col-lg-4" method="POST">
+                        number of students:<br>
+                        <input type="text" name="NumberOfStudents"><br>
+                
+                        number of projects:<br>
+                        <input type="text" name="NumberOfProjects"><br>
+                        
+                        Minimum number of projects to be selected by each student:<br>
+                        <input type="text" name="MinimumNumberSelectedProjects"><br>
+                
+                        Maximum number of students per each project:<br>
+                        <input type="text" name = "MaximumNumberStudentsPerProject"><br>
+                
+                
+                        Population size:<br>
+                        <input type="text" name = "PopulationSize"><br>
+                
+                
+                        Probability of crossover:<br>
+                        <input type="text" name = "CrossoverProbability"><br>
+                
+                
+                        Probability of mutation:<br>
+                        <input type="text" name = "MutationProbability"><br>
+                
+                        Number of chromosomes to be kept in the next generation:<br>
+                        <input type="text" name = "N_Keep"><br>
+                
+                        Number of locations in which crossover occurs:<br>
+                        <input type="text" name = "N_cross"><br>
+                
+                        Reassign students that are not placed in desired project? :<br>
+                        <input type="text" name = "reassign"><br>
+                
+                        Maximum number of optimization iterations:<br>
+                        <input type="text" name = "MaxIteration"><br>
+                
+                        Cost function change tolerance:<br>
+                        <input type="text" name = "costtol"><br>
+                
+                        Enter weight parameter to balance number of student per project (0 when term is not part of cost function):<br>
+                        <input type="text" name = "gamma"><br>
+                
+                        Enter weight paramter to balance gpa average of each team (0 when term is not part of cost fucntion ):<br>
+                        <input type="text" name = "gamma_gpa"><br>
+                       
+                
+                
+                        <br>
+                
+                        <input type="submit" value="Submit">
+                    
+                    </form>
+                    
+
+            
+        </section>
+
+
+
+        
+
+    </body>
+</html>
