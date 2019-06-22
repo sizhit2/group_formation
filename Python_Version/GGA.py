@@ -1,14 +1,12 @@
 # Main for Genetic Algorithm simulation
 from StructDef import Student, Individual
-from OptimizationFunctions import *
+from OptimizationFunctions import OptimizationFunctions
 from InputOutput import *
-from Initialize import initialize_population
-from GeneticAlgorithmFunctions import *
+from GeneticAlgorithmFunctions import GeneticAlgorithmFunctions
 import copy
 import time
 
-def run_ga():
-    dir = '../data/'
+def run_ga(dir='../data/'):
     in_data = parse_input_data(dir+'input_data.txt')
 
     # For the design variable matrix
@@ -32,7 +30,7 @@ def run_ga():
     gamma = in_data[13]
     gamma_gpa = in_data[14]
 
-    gamma_gpa = 0 # Comment out this line when considering GPA
+    # gamma_gpa = 0  # Comment out this line when considering GPA
 
     print ("Reading Excel data....")
     student_list = read_from_csv(dir+data_filename, num_projects)
@@ -42,13 +40,14 @@ def run_ga():
         student_pref_matrix[i, :] = student.project_preferences
         max_satisfaction += max(student_pref_matrix[i, :])
 
-    class_avg_gpa = get_class_avg_gpa(student_list)
+    class_avg_gpa = OptimizationFunctions.get_class_avg_gpa(student_list)
     avg_size_group = int(num_students / num_projects)
 
-    population = initialize_population(population_size, num_students, num_projects, n_cross)
+    population = GeneticAlgorithmFunctions.initialize_population(population_size, num_students, num_projects, n_cross)
     print ("Initial population generated...")
-    population = compute_and_fix(population, max_students_per_proj, student_list)
-    population = evaluate_fitness(population, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
+    population = OptimizationFunctions.compute_and_fix(population, max_students_per_proj, student_list)
+    population = OptimizationFunctions.evaluate_fitness(population, student_list, max_satisfaction, class_avg_gpa,
+                                                        avg_size_group, gamma_gpa, gamma)
     population.sort(key=lambda ind: ind.fitness, reverse=True)
     # for ind in population:
     #     print (ind.fitness)
@@ -60,8 +59,8 @@ def run_ga():
     iter_check = 0
     change_cost_function = 10
     converged = False
-    reassign_helped = 0
-    reassign_generations = []
+    reassign_helped = 0         # To check effectiveness of reassign
+    reassign_generations = []   # Generations wherein reassigning helped at least one individual
     most_satisfied = 0
 
     start = time.time()
@@ -70,13 +69,15 @@ def run_ga():
         if iter % 100 == 0:
             print ("Generation #", iter)
         # Form a new generation
-        new_pop = crossover_with_random_offspring_generation(population, n_keep, crossover_prob)
-        new_pop = apply_mutation(new_pop, mutation_prob, n_keep)
-        new_pop = compute_and_fix(new_pop, max_students_per_proj, student_list)
-        new_pop = evaluate_fitness(new_pop, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
+        new_pop = GeneticAlgorithmFunctions.crossover_with_random_offspring_generation(population, n_keep,
+                                                                                       crossover_prob)
+        new_pop = GeneticAlgorithmFunctions.apply_mutation(new_pop, mutation_prob, n_keep)
+        new_pop = OptimizationFunctions.compute_and_fix(new_pop, max_students_per_proj, student_list)
+        new_pop = OptimizationFunctions.evaluate_fitness(new_pop, student_list, max_satisfaction, class_avg_gpa,
+                                                             avg_size_group, gamma_gpa, gamma)
 
         # Sort by fitness, and grab most fit individual
-        new_pop.sort(key= lambda ind: ind.fitness, reverse=True)
+        new_pop.sort(key=lambda ind: ind.fitness, reverse=True)
 
         # To check if reassign increases fitness:
         # temp_cost_val = new_pop[0].fitness
@@ -94,20 +95,20 @@ def run_ga():
         #     reassign_generations.append(iter)
 
         # Update the best cost and chromosome if needed
-        if (new_cost_val > best_cost):
+        if new_cost_val > best_cost:
             best_cost = new_cost_val
             best_chromosome = copy.deepcopy(new_pop[0])
-            most_satisfied = get_num_satisfied_students(best_chromosome, student_list)
+            most_satisfied = OptimizationFunctions.get_num_satisfied_students(best_chromosome, student_list)
 
         # If at the same cost, we have fewer students in unfavorable projects
         # make that the best chromosome
-        elif (new_cost_val == best_cost):
-            satisfied = get_num_satisfied_students(new_pop[0], student_list)
+        elif new_cost_val == best_cost:
+            satisfied = OptimizationFunctions.get_num_satisfied_students(new_pop[0], student_list)
             if satisfied > most_satisfied:
                 most_satisfied = satisfied
                 best_chromosome = copy.deepcopy(new_pop[0])
 
-        # Convergence checks
+        # Convergence checks: Once cost function stops changing, make sure we stay converged for 30 iterations
         if change_cost_function < cost_tol:
             if not converged:
                 iter_check = 0
@@ -125,10 +126,14 @@ def run_ga():
         # For the next iteration
         population = new_pop
         cost_val = new_cost_val
-    else: # Loop else to check convergence
-        print ("Max iter reached..")
+
+    else:  # Loop else to check if termination was due to convergence or maximum iterations
+        print("Max iter reached..")
+
     seconds_taken = time.time() - start
-    print ("Final chromosome: \n", best_chromosome.chrom)
+    print("Final chromosome: \n", best_chromosome.chrom)
+
+    # Get some insights on achieved configuration
     total_satisfaction = 0
     num_students_picked_project = 0
     num_students_unfavorable = 0
@@ -140,16 +145,17 @@ def run_ga():
             num_students_picked_project += 1
         else:
             num_students_unfavorable += 1
-    print ("Total satisfaction:\n", total_satisfaction)
-    print ("Max satisfaction:\n", max_satisfaction)
-    print ("# students in projects they picked:", num_students_picked_project)
-    print ("# students in projects they did not pick:", num_students_unfavorable)
-    print ("Final fitness: \n", best_chromosome.fitness)
-    print ("Num students per project: \n", best_chromosome.num_student_per_project)
+
+    print("Total satisfaction:\n", total_satisfaction)
+    print("Max satisfaction:\n", max_satisfaction)
+    print("# students in projects they picked:", num_students_picked_project)
+    print("# students in projects they did not pick:", num_students_unfavorable)
+    print("Final fitness: \n", best_chromosome.fitness)
+    print("Num students per project: \n", best_chromosome.num_student_per_project)
     # print ("Reassigning students helped in %d generations" % reassign_helped)
     # print ("Generations benefitting from reassign:", reassign_generations)
-    print ("Number of generations to converge: %d" % iter)
-    print ("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
+    print("Number of generations to converge: %d" % iter)
+    print("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
     # print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
     return (total_satisfaction, most_satisfied, best_chromosome.fitness, best_chromosome.num_student_per_project,
             iter, seconds_taken)
@@ -168,7 +174,7 @@ def main():
     best_satisfaction = 0
     bsat_index = 0
     for i in range(num_iter):
-        print ("\nrun #%d" % (i+1))
+        print("\nRun #%d" % (i+1))
         result = run_ga()
         if len(ga_results) == 0:
             best_fitness = result[2]
@@ -190,9 +196,9 @@ def main():
                 most_satisfied = result[1]
         ga_results.append(result)
 
-    print ("Best run for fitness: %d" % (fit_index+1))
-    print ("Best run for total satisfaction: %d" % (bsat_index+1))
-    print ("Best run for # students satisfied: %d" % (msat_index+1))
+    print("Best run for fitness: %d" % (fit_index+1))
+    print("Best run for total satisfaction: %d" % (bsat_index+1))
+    print("Best run for # students satisfied: %d" % (msat_index+1))
 
 
 if __name__ == '__main__':
