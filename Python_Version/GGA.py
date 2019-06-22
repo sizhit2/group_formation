@@ -6,7 +6,7 @@ from GeneticAlgorithmFunctions import GeneticAlgorithmFunctions
 import copy
 import time
 
-def run_ga(dir='../data/'):
+def run_ga(dir='../data/Run10_noGPAweight/'):
     in_data = parse_input_data(dir+'input_data.txt')
 
     # For the design variable matrix
@@ -157,8 +157,10 @@ def run_ga(dir='../data/'):
     print("Number of generations to converge: %d" % iter)
     print("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
     # print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
+    export_individual_to_csv(best_chromosome, student_list)
     return (total_satisfaction, most_satisfied, best_chromosome.fitness, best_chromosome.num_student_per_project,
             iter, seconds_taken)
+
 
 # Temporary to run on new data
 def t_main():
@@ -202,4 +204,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    t_main()

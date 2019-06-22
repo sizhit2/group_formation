@@ -1,6 +1,7 @@
 import csv
 import re
 from StructDef import Student
+from StructDef import Individual
 
 import pandas as pd
 import numpy as np
@@ -59,6 +60,27 @@ def parse_input_data(in_filename):
             line = int(line)
         in_data.append(line)
     return in_data
+
+def export_individual_to_csv(ind, student_list, dir='../data/output/',
+                            filename='final_teams.csv'):
+    header = ['Project', 'Group satisfaction', 'Student names']
+    print ("Writing to output file: " + dir + filename)
+    with open(dir+filename, 'w+') as out_file:
+        data_writer = csv.writer(out_file, delimiter=',')
+        data_writer.writerow(header)
+        for row in range(ind.num_projects):
+            student_names = []
+            group_satisfaction = 0
+            for stud in range(ind.num_students):
+                if ind.chrom[stud] == row:
+                    student = student_list[stud]
+                    student_names.append(student.first_name.capitalize() + ' '
+                                    + student.last_name.capitalize())
+                    group_satisfaction += student.project_preferences[row]
+            write_row = [row+1, group_satisfaction] + student_names
+            data_writer.writerow(write_row)
+    print ('Output written')
+    return True
 
 # Void function to test functionality implemented here
 def test_main():
