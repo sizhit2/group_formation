@@ -29,12 +29,18 @@ def get_best_runs(num_iter=5, dir='../data/Run10_noGPAweight/'):
             if result[1] > most_satisfied:
                 msat_index = i
                 most_satisfied = result[1]
+        print ('Writing Run #%d to file...' % (i+1))
+        export_individual_to_csv(result[-2], result[-1], filename='Run'+str(i+1)+'_teams.csv')
         ga_results.append(result)
 
+    print ('Best fitness: Run %d' % (fit_index+1))
+    print ('Best satisfaction score: Run %d' % (bsat_index+1))
+    print ('Most students satisfied: Run %d' % (msat_index+1))
     return (ga_results[fit_index], ga_results[bsat_index], ga_results[msat_index])
 
 def main():
     best_fit, best_sat, most_sat = get_best_runs(dir='../data/Run10_noGPAweight/')
+
 
 if __name__ == '__main__':
     main()

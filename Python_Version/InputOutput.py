@@ -63,23 +63,56 @@ def parse_input_data(in_filename):
 
 def export_individual_to_csv(ind, student_list, dir='../data/output/',
                             filename='final_teams.csv'):
+    """
+    Exports a configuration of students in teams to a given file.
+    :param ind: chromosome with data to be written
+    :param student_list: list with student data for reference
+    :param filename: file to write to
+    :return: True if successful write.
+    """
     header = ['Project', 'Group satisfaction', 'Student names']
     print ("Writing to output file: " + dir + filename)
     with open(dir+filename, 'w+') as out_file:
         data_writer = csv.writer(out_file, delimiter=',')
         data_writer.writerow(header)
+
+        # Track data while traversing file
+        unsatisfied_students = []
+        num_unsatisfied = 0
+        total_satisfaction = 0
+
         for row in range(ind.num_projects):
+            # Finding teams for each project
             student_names = []
             group_satisfaction = 0
             for stud in range(ind.num_students):
                 if ind.chrom[stud] == row:
                     student = student_list[stud]
-                    student_names.append(student.first_name.capitalize() + ' '
-                                    + student.last_name.capitalize())
-                    group_satisfaction += student.project_preferences[row]
+                    name = student.first_name.capitalize() + ' ' + student.last_name.capitalize()
+                    student_names.append(name)
+                    if student.selected_partner:
+                        p_name = str(student.partner_first_name).capitalize()
+                        p_name += ' ' + str(student.partner_last_name).capitalize()
+                        p_name += '*'
+                        student_names.append(p_name)
+
+                    sat = student.project_preferences[row]
+                    group_satisfaction += sat
+                    total_satisfaction += sat
+                    if sat == 0:
+                        num_unsatisfied += 1
+                        unsatisfied_students.append(name)
             write_row = [row+1, group_satisfaction] + student_names
             data_writer.writerow(write_row)
-    print ('Output written')
+
+        # Write empty row
+        data_writer.writerow([])
+        data_writer.writerow(['Total satisfaction', total_satisfaction])
+        data_writer.writerow(['Num unsatisfied', num_unsatisfied])
+        data_writer.writerow(['Unsatisfied students'] + unsatisfied_students)
+        data_writer.writerow(['* - student is a partner of student to the left'])
+
+    print ('Data written to ' + dir + filename)
     return True
 
 # Void function to test functionality implemented here

@@ -1,0 +1,29 @@
+Project,Group satisfaction,Student names
+1,11.0,Yeonsoo Park,Jiaxuan Han,Nick Rohner,Corey Helgeson*
+2,12.0,Jacob Draper,Christian Reichert*,Jennifer Luebbers,Scheile Preston*,Taehyun Park
+3,13.0,John Chapman,Shang ming Wang*,Cole Senesac,Roland Dewgard*,Davin Bahk
+4,19.0,Jeremy Tyszkiewicz,Austin Wheat,Matthew Peterson,David Sloane,Peter Krusiewicz*
+5,18.0,Connor Loughlin,William Enowmbitang,Dino Kandalepas,Will Gyori*,Carly Newman
+6,21.0,Young jun Kim,Jye sze Lee,Adam Castaneda,Mingze Chen,Neil Hofstrand
+7,20.0,Eray Ergenc,Eshaan Gandhi,Chendi Lin,Gulai Shen*,Therese Marsh
+8,13.0,Mike Mayer,Jake Czajkowski,Dan Langley*,Shun him Lau
+9,9.0,Vignesh Sarathy,Amal De alwis*,Eric Sedlacek,Emily Koss*,Geran Wen
+10,18.0,Bryant Lash,Ryan Osborn,Connor Helsdingen,Vivek Gupta,Grant Whitman
+11,11.0,Mark Noftz,Michael Brenner,Alexander Lopez*,Ryan Oostdyk,Andrew Cassiere
+12,18.0,Benjamin Anderson,Jodi Jensen,Sam Wingen,Rishi Sheth*,Li Ye
+13,10.0,Raziel Pelcastre,David Jeffries,Jin Lee,Nan Boutilier*
+14,19.0,Nicolas John,Audrey Ayo*,Mark Rubidge,Adithya narayan Vishnu,Jae Yun
+15,18.0,Mark Moy,Jad Faraj,Ho jun Lee,Zaynab Salehpour
+16,15.0,Joshua Brooks,Kenneth Cooley*,Jasmine Mei,Kevin Staniszewski,Kyle Teschendorf*
+17,9.0,Jiashuo Tong,Ada He*,Grace Riordan,Sabrina Yin,Yushi Wang*
+18,12.0,Phillip Knight,David Saavedra*,Yunpeng Liu,Le Yi
+19,20.0,Jacob Alexander,Matthew Eaton,Joo hyung Kim,Joel Meyer,Krishnaprasad Jayaraj*
+20,14.0,Edgar Mejia,Eric Michael,Alex Jiskra*,Tianhao Zhao,Zhonglin Cao*
+21,13.0,Howy (wei yang) Ho,Jennifer Ko,Moses Kim*,John Mcnally,Scott Rogman*
+22,11.0,Kea Evans,Darci Dietrich*,Yuerong Li,Zixu Zhang,Jiaxi Wen*
+23,10.0,Thomas Bakken,Paul Fina,Caine Huart*,Tanay Gupta,Christian Tekiela*
+
+Total satisfaction,334.0
+Num unsatisfied,0
+Unsatisfied students
+* - student is a partner of student to the left

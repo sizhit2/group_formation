@@ -131,7 +131,7 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
         print("Max iter reached..")
 
     seconds_taken = time.time() - start
-    print("Final chromosome: \n", best_chromosome.chrom)
+    # print("Final chromosome: \n", best_chromosome.chrom)
 
     # Get some insights on achieved configuration
     total_satisfaction = 0
@@ -146,20 +146,21 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
         else:
             num_students_unfavorable += 1
 
-    print("Total satisfaction:\n", total_satisfaction)
-    print("Max satisfaction:\n", max_satisfaction)
-    print("# students in projects they picked:", num_students_picked_project)
-    print("# students in projects they did not pick:", num_students_unfavorable)
-    print("Final fitness: \n", best_chromosome.fitness)
-    print("Num students per project: \n", best_chromosome.num_student_per_project)
+    # print("Total satisfaction:\n", total_satisfaction)
+    # print("Max satisfaction:\n", max_satisfaction)
+    # print("# students in projects they picked:", num_students_picked_project)
+    # print("# students in projects they did not pick:", num_students_unfavorable)
+    # print("Final fitness: \n", best_chromosome.fitness)
+    # print("Num students per project: \n", best_chromosome.num_student_per_project)
     # print ("Reassigning students helped in %d generations" % reassign_helped)
     # print ("Generations benefitting from reassign:", reassign_generations)
-    print("Number of generations to converge: %d" % iter)
+    # print("Number of generations to converge: %d" % iter)
     print("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
     # print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
-    export_individual_to_csv(best_chromosome, student_list)
-    return (total_satisfaction, most_satisfied, best_chromosome.fitness, best_chromosome.num_student_per_project,
-            iter, seconds_taken)
+    # export_individual_to_csv(best_chromosome, student_list)
+    return (total_satisfaction, most_satisfied, best_chromosome.fitness,
+            best_chromosome.num_student_per_project, iter, seconds_taken,
+            best_chromosome, student_list)
 
 
 # Temporary to run on new data
