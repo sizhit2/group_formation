@@ -78,21 +78,21 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
         new_pop.sort(key=lambda ind: ind.fitness, reverse=True)
 
         # To check if reassign increases fitness:
-        # temp_cost_val = new_pop[0].fitness
+        temp_cost_val = new_pop[0].fitness
 
         # Reassign and re-evaluate fitness
-        # new_pop = reassign_students(new_pop, student_list, reassign, max_students_per_proj)
-        # new_pop = evaluate_fitness(new_pop, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
-        # new_pop.sort(key= lambda ind: ind.fitness, reverse=True)
+        new_pop = OptimizationFunctions.reassign_students_alternative(new_pop, student_list, reassign, max_students_per_proj)
+        new_pop = OptimizationFunctions.evaluate_fitness(new_pop, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
+        new_pop.sort(key= lambda ind: ind.fitness, reverse=True)
 
         new_cost_val = new_pop[0].fitness
         change_cost_function = abs(new_cost_val - cost_val) / new_cost_val
 
         print ("Generation: %d Fitness: %f" % (iter, new_cost_val))
 
-        # if new_cost_val > temp_cost_val:
-        #     reassign_helped += 1
-        #     reassign_generations.append(iter)
+        if new_cost_val > temp_cost_val:
+            reassign_helped += 1
+            reassign_generations.append(iter)
 
         # Update the best cost and chromosome if needed
         if new_cost_val > best_cost:
@@ -152,8 +152,8 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
     # print("# students in projects they did not pick:", num_students_unfavorable)
     # print("Final fitness: \n", best_chromosome.fitness)
     # print("Num students per project: \n", best_chromosome.num_student_per_project)
-    # print ("Reassigning students helped in %d generations" % reassign_helped)
-    # print ("Generations benefitting from reassign:", reassign_generations)
+    print ("Reassigning students helped in %d generations" % reassign_helped)
+    print ("Generations benefitting from reassign:", reassign_generations)
     # print("Number of generations to converge: %d" % iter)
     print("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
     # print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)

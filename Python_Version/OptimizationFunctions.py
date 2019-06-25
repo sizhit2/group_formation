@@ -275,6 +275,69 @@ class OptimizationFunctions(object):
         return population
 
     @staticmethod
+    def check_viable_swap(ind, tentative_proj, assigned_proj, add, t_add, max_per_project):
+        if ind.num_student_per_project[tentative_proj] - t_add + add <= max_per_project:
+            if ind.num_student_per_project[assigned_proj] - add + t_add <= max_per_project:
+                return True
+        return False
+
+
+    @staticmethod
+    def reassign_students_alternative(population, student_list, reassign_prob, max_per_project):
+        for i in range(len(population) // 20):
+            ind = population[i]
+            for j in range(ind.num_students):
+                student = student_list[j]
+                assigned_proj = ind.chrom[j]
+                reassign_student = True
+                found = False
+
+                if student.selected_partner:
+                    add = 2
+                else:
+                    add = 1
+
+                if reassign_prob < 1:
+                    flip = np.random.rand()
+                    if flip > reassign_prob:
+                        reassign_student = False
+
+                if student.project_preferences[assigned_proj] == 0 and reassign_student:
+                    tentative_projs = np.argsort(student.project_preferences)[::-1]
+                    for tentative_proj in tentative_projs:
+
+                        if student.project_preferences[tentative_proj] == 0:
+                            break
+
+                        prospective_swaps = []
+                        for row in range(ind.num_students):
+                            if ind.dv_matrix[row, tentative_proj] > 0:
+                                t_student = student_list[row]
+                                if t_student.project_preferences[assigned_proj] == 0:
+                                    continue
+                                t_add = 1
+                                if t_student.selected_partner:
+                                    t_add += 1
+                                if OptimizationFunctions.check_viable_swap(ind, tentative_proj, assigned_proj, add, t_add, max_per_project):
+                                    ind.chrom[j] = tentative_proj
+                                    ind.chrom[row] = assigned_proj
+
+                                    ind.num_student_per_project[assigned_proj] -= add
+                                    ind.num_student_per_project[assigned_proj] += t_add
+                                    ind.num_student_per_project[tentative_proj] -= t_add
+                                    ind.num_student_per_project[tentative_proj] += add
+
+                                    ind.dv_matrix[row, tentative_proj] = 0
+                                    ind.dv_matrix[row, assigned_proj] = 1
+                                    ind.dv_matrix[j, assigned_proj] = 0
+                                    ind.dv_matrix[j, tentative_proj] = 1
+
+                                    found = True
+                                    break
+        return population
+
+
+    @staticmethod
     def get_num_satisfied_students(individual, student_list):
         """
         Finds the number of students in projects they picked for a given individual

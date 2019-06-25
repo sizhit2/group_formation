@@ -38,7 +38,7 @@ def read_from_csv(filename, num_projects):
                 partner_last = row[-5]
                 partner_first = row[-4]
                 if row[-3]:
-                    partner_gpa = row[-3]
+                    partner_gpa = float(row[-3])
                 else:
                     partner_gpa = 0.0
                 student.update_partner_info(partner_last, partner_first, partner_gpa)

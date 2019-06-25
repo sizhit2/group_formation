@@ -1,29 +1,29 @@
-Project,Group satisfaction,Student names
-1,14.0,Yeonsoo Park,Jiaxuan Han,Yunpeng Liu,Sabrina Yin,Yushi Wang*
-2,15.0,Mingze Chen,Jacob Draper,Christian Reichert*,Taehyun Park,Matthew Peterson
-3,20.0,Connor Loughlin,Davin Bahk,Matthew Eaton,Jennifer Ko,Moses Kim*
-4,18.0,Jeremy Tyszkiewicz,Ryan Oostdyk,Austin Wheat,David Sloane,Peter Krusiewicz*
-5,14.0,Dino Kandalepas,Will Gyori*,Eric Michael,Alex Jiskra*,Carly Newman
-6,21.0,Young jun Kim,Jye sze Lee,Adam Castaneda,Neil Hofstrand,Ho jun Lee
-7,14.0,Eshaan Gandhi,Yuerong Li,Nick Rohner,Corey Helgeson*
-8,12.0,Michael Brenner,Alexander Lopez*,Mike Mayer,Sam Wingen,Rishi Sheth*
-9,6.0,Vignesh Sarathy,Amal De alwis*,Eric Sedlacek,Emily Koss*
-10,16.0,Bryant Lash,Shun him Lau,Jiashuo Tong,Ada He*,Vivek Gupta
-11,9.0,Mark Noftz,Andrew Cassiere,Jennifer Luebbers,Scheile Preston*
-12,17.0,Benjamin Anderson,Connor Helsdingen,John Mcnally,Scott Rogman*,Li Ye
-13,10.0,Jake Czajkowski,Dan Langley*,David Jeffries,Mark Rubidge
-14,11.0,Nicolas John,Audrey Ayo*,Chendi Lin,Gulai Shen*,Adithya narayan Vishnu
-15,14.0,Cole Senesac,Roland Dewgard*,Zaynab Salehpour,Kevin Staniszewski,Kyle Teschendorf*
-16,24.0,Raziel Pelcastre,Eray Ergenc,Jasmine Mei,Grace Riordan,Grant Whitman
-17,10.0,Thomas Bakken,Joshua Brooks,Kenneth Cooley*,Paul Fina,Caine Huart*
-18,11.0,Phillip Knight,David Saavedra*,John Chapman,Shang ming Wang*,Jad Faraj
-19,15.0,Joo hyung Kim,Joel Meyer,Krishnaprasad Jayaraj*,Tianhao Zhao,Zhonglin Cao*
-20,22.0,Mark Moy,Jacob Alexander,Howy (wei yang) Ho,Edgar Mejia,Le Yi
-21,14.0,William Enowmbitang,Kea Evans,Darci Dietrich*,Therese Marsh
-22,13.0,Tanay Gupta,Christian Tekiela*,Geran Wen,Zixu Zhang,Jiaxi Wen*
-23,20.0,Ryan Osborn,Jodi Jensen,Jin Lee,Nan Boutilier*,Jae Yun
+Project,Average GPA,Group satisfaction,Student names
+1,,11.0,Mark Noftz,Mike Mayer,Yunpeng Liu,Sabrina Yin,Yushi Wang*
+2,,12.0,Paul Fina,Caine Huart*,Chendi Lin,Gulai Shen*,Taehyun Park
+3,,23.0,Connor Loughlin,Davin Bahk,Matthew Eaton,Carly Newman,Jae Yun
+4,,17.0,Jeremy Tyszkiewicz,Connor Helsdingen,Matthew Peterson,Zixu Zhang,Jiaxi Wen*
+5,,15.0,William Enowmbitang,Dino Kandalepas,Will Gyori*,Eric Michael,Alex Jiskra*
+6,,18.0,Young jun Kim,Adam Castaneda,Jacob Draper,Christian Reichert*,Neil Hofstrand
+7,,15.0,Eshaan Gandhi,Tanay Gupta,Christian Tekiela*,Joel Meyer,Krishnaprasad Jayaraj*
+8,,14.0,Michael Brenner,Alexander Lopez*,Shun him Lau,Sam Wingen,Rishi Sheth*
+9,,6.0,Vignesh Sarathy,Amal De alwis*,Eric Sedlacek,Emily Koss*
+10,,6.0,Jiashuo Tong,Ada He*,Jodi Jensen,John Mcnally,Scott Rogman*
+11,,8.0,Phillip Knight,David Saavedra*,Bryant Lash,Jye sze Lee
+12,,18.0,Benjamin Anderson,John Chapman,Shang ming Wang*,Andrew Cassiere,Li Ye
+13,,12.0,Ryan Oostdyk,Jake Czajkowski,Dan Langley*,Thomas Bakken,David Jeffries
+14,,16.0,Yuerong Li,Grace Riordan,David Sloane,Peter Krusiewicz*,Adithya narayan Vishnu
+15,,18.0,Cole Senesac,Roland Dewgard*,Mark Moy,Ho jun Lee,Zaynab Salehpour
+16,,19.0,Vivek Gupta,Howy (wei yang) Ho,Jin Lee, Boutilier*,Grant Whitman
+17,,6.0,Kevin Staniszewski,Kyle Teschendorf*,Tianhao Zhao,Zhonglin Cao*
+18,,19.0,Yeonsoo Park,Ryan Osborn,Austin Wheat,Jad Faraj,Le Yi
+19,,24.0,Raziel Pelcastre,Mingze Chen,Joo hyung Kim,Therese Marsh,Jasmine Mei
+20,,13.0,Jacob Alexander,Jennifer Luebbers,Scheile Preston*,Geran Wen
+21,,15.0,Kea Evans,Darci Dietrich*,Jennifer Ko,Moses Kim*,Edgar Mejia
+22,,8.0,Joshua Brooks,Kenneth Cooley*,Eray Ergenc,Jiaxuan Han
+23,,15.0,Nicolas John,Audrey Ayo*,Nick Rohner,Corey Helgeson*,Mark Rubidge
 
-Total satisfaction,340.0
+Total satisfaction,328.0
 Num unsatisfied,0
 Unsatisfied students
 * - student is a partner of student to the left
