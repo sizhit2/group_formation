@@ -15,27 +15,34 @@ def read_from_csv(filename, num_projects):
     :return: list of Student objects for the class
     """
     student_list = []
-    reader = pd.read_csv(filename, delimiter=',')
-    for row in range(reader.shape[0]):
-        last_name = reader['Last Name'][row]
-        first_name = reader['First Name'][row]
-        gpa = reader['GPA'][row]
-        selected_partner = reader['Selected Partner?'][row]
+    with open(filename, 'r+') as csv_file:
+        reader = csv.reader(csv_file, delimiter=',')
+        for ind, row in enumerate(reader):
+            if ind == 0:
+                continue
+            last_name = row[0]
+            first_name = row[1]
+            if row[2]:
+                gpa = float(row[2])
+            else:
+                gpa = 0.0
+            selected_partner = int(row[3])
 
-        project_preferences = np.zeros(num_projects)
-        ind = 0
-        for i in range(num_projects):
-            project_preferences[ind] = reader['Project ' + str(i + 1)][row]
-            ind += 1
+            project_preferences = np.zeros(num_projects)
+            for i in range(num_projects):
+                project_preferences[i] = int(row[4+i])
 
-        student = Student(gpa, selected_partner, last_name, first_name)
-        student.update_project_preferences(project_preferences)
-        if selected_partner:
-            partner_last = reader['Partner Last'][row]
-            partner_first = reader['Partner First'][row]
-            partner_gpa = reader['Partner GPA'][row]
-            student.update_partner_info(partner_last, partner_first, partner_gpa)
-        student_list.append(student)
+            student = Student(gpa, selected_partner, last_name, first_name)
+            student.update_project_preferences(project_preferences)
+            if selected_partner:
+                partner_last = row[-5]
+                partner_first = row[-4]
+                if row[-3]:
+                    partner_gpa = row[-3]
+                else:
+                    partner_gpa = 0.0
+                student.update_partner_info(partner_last, partner_first, partner_gpa)
+            student_list.append(student)
     return student_list
 
 
@@ -70,7 +77,7 @@ def export_individual_to_csv(ind, student_list, dir='../data/output/',
     :param filename: file to write to
     :return: True if successful write.
     """
-    header = ['Project', 'Group satisfaction', 'Student names']
+    header = ['Project', 'Average GPA', 'Group satisfaction', 'Student names']
     print ("Writing to output file: " + dir + filename)
     with open(dir+filename, 'w+') as out_file:
         data_writer = csv.writer(out_file, delimiter=',')
@@ -102,7 +109,7 @@ def export_individual_to_csv(ind, student_list, dir='../data/output/',
                     if sat == 0:
                         num_unsatisfied += 1
                         unsatisfied_students.append(name)
-            write_row = [row+1, group_satisfaction] + student_names
+            write_row = [row+1, None, group_satisfaction] + student_names
             data_writer.writerow(write_row)
 
         # Write empty row

@@ -66,8 +66,6 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
     start = time.time()
     while iter < max_iter:
         iter += 1
-        if iter % 100 == 0:
-            print ("Generation #", iter)
         # Form a new generation
         new_pop = GeneticAlgorithmFunctions.crossover_with_random_offspring_generation(population, n_keep,
                                                                                        crossover_prob)
@@ -89,6 +87,8 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
 
         new_cost_val = new_pop[0].fitness
         change_cost_function = abs(new_cost_val - cost_val) / new_cost_val
+
+        print ("Generation: %d Fitness: %f" % (iter, new_cost_val))
 
         # if new_cost_val > temp_cost_val:
         #     reassign_helped += 1
