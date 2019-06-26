@@ -1,29 +1,33 @@
 Project,Average GPA,Group satisfaction,Student names
-1,,14.0,Yeonsoo Park,Mike Mayer,Jiaxuan Han,Nick Rohner,Corey Helgeson*
-2,,12.0,Paul Fina,Caine Huart*,Chendi Lin,Gulai Shen*,Taehyun Park
-3,,14.0,Connor Loughlin,John Mcnally,Scott Rogman*,Joel Meyer,Krishnaprasad Jayaraj*
-4,,15.0,Jeremy Tyszkiewicz,Ryan Oostdyk,Cole Senesac,Roland Dewgard*,Matthew Peterson
-5,,14.0,Dino Kandalepas,Will Gyori*,Eric Michael,Alex Jiskra*,Carly Newman
-6,,21.0,Jye sze Lee,Adam Castaneda,Neil Hofstrand,Jodi Jensen,Ho jun Lee
-7,,19.0,Jad Faraj,Tanay Gupta,Christian Tekiela*,Yuerong Li,Le Yi
-8,,11.0,Jake Czajkowski,Dan Langley*,Jiashuo Tong,Ada He*,Mark Moy
-9,,6.0,Vignesh Sarathy,Amal De alwis*,Eric Sedlacek,Emily Koss*
-10,,17.0,Mark Noftz,Benjamin Anderson,Connor Helsdingen,Shun him Lau,Grant Whitman
-11,,11.0,Andrew Cassiere,Matthew Eaton,Jennifer Luebbers,Scheile Preston*,Therese Marsh
-12,,13.0,John Chapman,Shang ming Wang*,Davin Bahk,Sam Wingen,Rishi Sheth*
-13,,14.0,Eray Ergenc,Eshaan Gandhi,David Jeffries,Adithya narayan Vishnu
-14,,14.0,Nicolas John,Audrey Ayo*,Mark Rubidge,David Sloane,Peter Krusiewicz*
-15,,13.0,Thomas Bakken,Zaynab Salehpour,Kevin Staniszewski,Kyle Teschendorf*
-16,,14.0,Jasmine Mei,Grace Riordan,Tianhao Zhao,Zhonglin Cao*
-17,,12.0,Bryant Lash,Joshua Brooks,Kenneth Cooley*,Sabrina Yin,Yushi Wang*
-18,,16.0,Phillip Knight,David Saavedra*,Ryan Osborn,Austin Wheat,Yunpeng Liu
-19,,23.0,Raziel Pelcastre,Young jun Kim,Jacob Alexander,Mingze Chen,Howy (wei yang) Ho
-20,,19.0,William Enowmbitang,Joo hyung Kim,Jennifer Ko,Moses Kim*,Li Ye
-21,,15.0,Michael Brenner,Alexander Lopez*,Kea Evans,Darci Dietrich*,Edgar Mejia
-22,,15.0,Jacob Draper,Christian Reichert*,Geran Wen,Zixu Zhang,Jiaxi Wen*
-23,,14.0,Vivek Gupta,Jin Lee, Boutilier*,Jae Yun
+1,,9.0,Elizabeth Jimenez,Jonathan Tam*,Woo young Park,Yeongho Kim*,Shaoting Wu
+2,,17.0,Kevin Conrad,Charles Jansen,Guillermo Lopezsilvarrey montero,Douglas Petrik,Kevin Uvodich
+3,,13.0,Daniel Atten,Joshua Lozier*,Jiawei Jiang,Benita Ning,Maya D'souza*
+4,,16.0,Adrian Orea,Salaam Qatanani,Daniel Peterson*,Smit Shah,Qinwei Zhang
+5,,18.0,Mitch Allen,Patrick Mcgrail*,Kevin Peralta,Shao hao Sng,Gordon Zak
+6,,15.0,Zhuo Chen,Zhang Chi,Young seong Kim,Sunyu Wang,Ruby Xu
+7,,6.0,Nabarun Banerjee,Tanner Koehne*,Jin hwan Park,Kevin Wandke,Carter Wood*
+8,,16.0,Tristan Fisher,Javier Laguna,Gabriel Perez plata,Nino Randazzo,Ben Van arsdale
+9,,9.0,Matthew Antkowiak,Luwen Sun,Yefei Si*,Ziran Zhou,Xueying Hu*
+10,,15.0,Indraneel Bhanap,Arjun Varma*,Mattson Jace,William Muckian,Kevin Thayyil
+11,,24.0,Sherry Bao,Xinhe Chen,Kevin Cruse,Raul Fernandez,Vedant Puri
+12,,18.0,Samuel Klein,Daniel Petrou,Gregory Stroot*,Taylor Smairat,Cole Wiegand
+13,,8.0,Kathryn Donlin,Brody Ryan*,Vedant Jain,Craig Peng,Wentao Ni*
+14,,14.0,Cole Brooker,Tianrui Chai,Kirk Fortelka,Rachel Hawken,Dhipak Bala*
+15,,9.0,Michael Ho,Albert Valiaveedu*,Alejandro Morales,Sean Ewert*,Sarah Osman
+16,,6.0,James Nie,Omar Darwish*,Jason Rastegar,Tyler Tran,Huaiyu Chen*
+17,,10.0,Rachel Burroughs,Alexander Craffmendez*,Aaron Cheng,Kyung jun Lee,Valentino Wilson
+18,,11.0,Connor Chu,Nathaniel Clough*,Timothy Hurley,Timothy Man,Zachary Konecki*,Hunter Smith
+19,,19.0,Chanchali Agrawal,Allison Brown,Colton Rainey*,Nithin Rajkumar,So hyeon Youn
+20,,12.0,Beatriz Acosta bejarano,Jack Mahoney,Andrew Thompson*,Matthew Woytek,Kevin Hart*
+21,,20.0,Esa Amin,Mary kate Nowak,Theodore Reimann*,Anthony Parafinczuk,John Speckels
+22,,9.0,Parthan Jha,Varun Sarvaiya*,Brittany Klimas,Riley White,Sean Nugent*
+23,,18.0,Jaime Guerrero,Matthew Jedziniak,Thomas Penicook,Robert Wolf*,Tiffany Price
+24,,8.0,John Hutchinson,Qinan Zhou,Jiawei Dai*
+25,,12.0,Ines Avello,Anastasi Diamantopoulos,Patrick Burke*,Ankit Sengupta,Harsha Sankar*
+26,,14.0,Gonzalo Gutierrez schoenmakers,Michelle Roth,Kristina Miller*,Lea Savard,Ian Feign*
+27,,23.0,Wesley Kramer,Michael Lee,Matthew Nowak,Tatiana Schaffer,Joseph Uhrich
 
-Total satisfaction,336.0
+Total satisfaction,369.0
 Num unsatisfied,0
 Unsatisfied students
 * - student is a partner of student to the left

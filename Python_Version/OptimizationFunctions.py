@@ -276,6 +276,10 @@ class OptimizationFunctions(object):
 
     @staticmethod
     def check_viable_swap(ind, tentative_proj, assigned_proj, add, t_add, max_per_project):
+        """
+        Viable swaps are when the new number of students per project stays within constraints post-swap.
+        This function returns True if the swap is viable, False otherwise.
+        """
         if ind.num_student_per_project[tentative_proj] - t_add + add <= max_per_project:
             if ind.num_student_per_project[assigned_proj] - add + t_add <= max_per_project:
                 return True
@@ -284,13 +288,22 @@ class OptimizationFunctions(object):
 
     @staticmethod
     def reassign_students_alternative(population, student_list, reassign_prob, max_per_project):
+        """
+        Reassigns students in the top 5 percent of fit individuals. Reassigning is done when a student is placed in an
+        unfavorable project (i.e satisfaction value of 0). Swaps students, if amicable to both, to ensure that all students
+        are placed in favorable projects. Assumes that the population comes in sorted by fitness. Reassign done based on
+        reassign_prob parameter.
+        :param student_list: list of Student objects for the class
+        :param reassign_prob: probability of getting re-assigned
+        :param max_per_project: maximum number of students that can be assigned to any single project
+        :return: population with students re-assigned if possible
+        """
         for i in range(len(population) // 20):
             ind = population[i]
             for j in range(ind.num_students):
                 student = student_list[j]
                 assigned_proj = ind.chrom[j]
-                reassign_student = True
-                found = False
+                reassign_student = True     # Determines whether or not to reassign based on reassign_prob
 
                 if student.selected_partner:
                     add = 2
@@ -303,27 +316,31 @@ class OptimizationFunctions(object):
                         reassign_student = False
 
                 if student.project_preferences[assigned_proj] == 0 and reassign_student:
+                    # First get preferences for student, most preferred first
                     tentative_projs = np.argsort(student.project_preferences)[::-1]
                     for tentative_proj in tentative_projs:
-
-                        if student.project_preferences[tentative_proj] == 0:
+                        if student.project_preferences[tentative_proj] == 0: # If we reach unfavorable projects, skip
                             break
 
-                        prospective_swaps = []
                         for row in range(ind.num_students):
-                            if ind.dv_matrix[row, tentative_proj] > 0:
+                            if ind.dv_matrix[row, tentative_proj] == 1:
                                 t_student = student_list[row]
+
+                                # If swapping results in yet another unsatisfied student, skip it
                                 if t_student.project_preferences[assigned_proj] == 0:
                                     continue
+
                                 t_add = 1
                                 if t_student.selected_partner:
                                     t_add += 1
+
                                 if OptimizationFunctions.check_viable_swap(ind, tentative_proj, assigned_proj, add, t_add, max_per_project):
                                     ind.chrom[j] = tentative_proj
                                     ind.chrom[row] = assigned_proj
 
                                     ind.num_student_per_project[assigned_proj] -= add
                                     ind.num_student_per_project[assigned_proj] += t_add
+
                                     ind.num_student_per_project[tentative_proj] -= t_add
                                     ind.num_student_per_project[tentative_proj] += add
 
@@ -332,7 +349,6 @@ class OptimizationFunctions(object):
                                     ind.dv_matrix[j, assigned_proj] = 0
                                     ind.dv_matrix[j, tentative_proj] = 1
 
-                                    found = True
                                     break
         return population
 
