@@ -323,16 +323,17 @@ class OptimizationFunctions(object):
                             break
 
                         for row in range(ind.num_students):
-                            if ind.dv_matrix[row, tentative_proj] == 1:
+                            if ind.dv_matrix[row, tentative_proj] > 0:
                                 t_student = student_list[row]
 
                                 # If swapping results in yet another unsatisfied student, skip it
                                 if t_student.project_preferences[assigned_proj] == 0:
                                     continue
 
-                                t_add = 1
                                 if t_student.selected_partner:
-                                    t_add += 1
+                                    t_add = 2
+                                else:
+                                    t_add = 1
 
                                 if OptimizationFunctions.check_viable_swap(ind, tentative_proj, assigned_proj, add, t_add, max_per_project):
                                     ind.chrom[j] = tentative_proj
@@ -348,7 +349,6 @@ class OptimizationFunctions(object):
                                     ind.dv_matrix[row, assigned_proj] = 1
                                     ind.dv_matrix[j, assigned_proj] = 0
                                     ind.dv_matrix[j, tentative_proj] = 1
-
                                     break
         return population
 

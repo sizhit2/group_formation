@@ -88,7 +88,8 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
         new_cost_val = new_pop[0].fitness
         change_cost_function = abs(new_cost_val - cost_val) / new_cost_val
 
-        print ("Generation: %d Fitness: %f" % (iter, new_cost_val))
+        if iter % 5 == 0:
+            print ("Generation: %d Fitness: %f" % (iter, new_cost_val))
 
         if new_cost_val > temp_cost_val:
             reassign_helped += 1

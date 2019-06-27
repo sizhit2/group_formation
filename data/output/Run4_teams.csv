@@ -1,33 +1,33 @@
 Project,Average GPA,Group satisfaction,Student names
-1,,9.0,Elizabeth Jimenez,Jonathan Tam*,Woo young Park,Yeongho Kim*,Shaoting Wu
-2,,17.0,Kevin Conrad,Charles Jansen,Guillermo Lopezsilvarrey montero,Douglas Petrik,Kevin Uvodich
-3,,13.0,Daniel Atten,Joshua Lozier*,Jiawei Jiang,Benita Ning,Maya D'souza*
-4,,16.0,Adrian Orea,Salaam Qatanani,Daniel Peterson*,Smit Shah,Qinwei Zhang
-5,,18.0,Mitch Allen,Patrick Mcgrail*,Kevin Peralta,Shao hao Sng,Gordon Zak
-6,,15.0,Zhuo Chen,Zhang Chi,Young seong Kim,Sunyu Wang,Ruby Xu
-7,,6.0,Nabarun Banerjee,Tanner Koehne*,Jin hwan Park,Kevin Wandke,Carter Wood*
-8,,16.0,Tristan Fisher,Javier Laguna,Gabriel Perez plata,Nino Randazzo,Ben Van arsdale
-9,,9.0,Matthew Antkowiak,Luwen Sun,Yefei Si*,Ziran Zhou,Xueying Hu*
-10,,15.0,Indraneel Bhanap,Arjun Varma*,Mattson Jace,William Muckian,Kevin Thayyil
-11,,24.0,Sherry Bao,Xinhe Chen,Kevin Cruse,Raul Fernandez,Vedant Puri
-12,,18.0,Samuel Klein,Daniel Petrou,Gregory Stroot*,Taylor Smairat,Cole Wiegand
-13,,8.0,Kathryn Donlin,Brody Ryan*,Vedant Jain,Craig Peng,Wentao Ni*
-14,,14.0,Cole Brooker,Tianrui Chai,Kirk Fortelka,Rachel Hawken,Dhipak Bala*
-15,,9.0,Michael Ho,Albert Valiaveedu*,Alejandro Morales,Sean Ewert*,Sarah Osman
-16,,6.0,James Nie,Omar Darwish*,Jason Rastegar,Tyler Tran,Huaiyu Chen*
-17,,10.0,Rachel Burroughs,Alexander Craffmendez*,Aaron Cheng,Kyung jun Lee,Valentino Wilson
-18,,11.0,Connor Chu,Nathaniel Clough*,Timothy Hurley,Timothy Man,Zachary Konecki*,Hunter Smith
-19,,19.0,Chanchali Agrawal,Allison Brown,Colton Rainey*,Nithin Rajkumar,So hyeon Youn
-20,,12.0,Beatriz Acosta bejarano,Jack Mahoney,Andrew Thompson*,Matthew Woytek,Kevin Hart*
-21,,20.0,Esa Amin,Mary kate Nowak,Theodore Reimann*,Anthony Parafinczuk,John Speckels
-22,,9.0,Parthan Jha,Varun Sarvaiya*,Brittany Klimas,Riley White,Sean Nugent*
-23,,18.0,Jaime Guerrero,Matthew Jedziniak,Thomas Penicook,Robert Wolf*,Tiffany Price
-24,,8.0,John Hutchinson,Qinan Zhou,Jiawei Dai*
-25,,12.0,Ines Avello,Anastasi Diamantopoulos,Patrick Burke*,Ankit Sengupta,Harsha Sankar*
-26,,14.0,Gonzalo Gutierrez schoenmakers,Michelle Roth,Kristina Miller*,Lea Savard,Ian Feign*
-27,,23.0,Wesley Kramer,Michael Lee,Matthew Nowak,Tatiana Schaffer,Joseph Uhrich
+1,,12.0,Indraneel Bhanap,Arjun Varma*,Elizabeth Jimenez,Jonathan Tam*,Jason Rastegar
+2,,9.0,Anastasi Diamantopoulos,Patrick Burke*,Timothy Man,Zachary Konecki*,Gabriel Perez plata
+3,,12.0,Daniel Atten,Joshua Lozier*,Benita Ning,Maya D'souza*,Anthony Parafinczuk
+4,,15.0,Kevin Conrad,Woo young Park,Yeongho Kim*,Smit Shah,Qinwei Zhang
+5,,18.0,Allison Brown,Colton Rainey*,Kirk Fortelka,Kevin Thayyil,Valentino Wilson
+6,,6.0,Daniel Petrou,Gregory Stroot*,Riley White,Sean Nugent*,Ruby Xu
+7,,15.0,Matthew Antkowiak,Jiawei Jiang,Young seong Kim,Javier Laguna,Jin hwan Park
+8,,22.0,Raul Fernandez,Tristan Fisher,Vedant Puri,Nino Randazzo,Kevin Uvodich
+9,,9.0,John Hutchinson,Matthew Woytek,Kevin Hart*,Ziran Zhou,Xueying Hu*
+10,,20.0,Zhuo Chen,Mattson Jace,William Muckian,Adrian Orea,Hunter Smith
+11,,15.0,Alejandro Morales,Sean Ewert*,Craig Peng,Wentao Ni*,Douglas Petrik
+12,,22.0,Gonzalo Gutierrez schoenmakers,Samuel Klein,Brittany Klimas,Tiffany Price,Cole Wiegand
+13,,14.0,Sherry Bao,Kevin Cruse,Vedant Jain,Michael Lee,Matthew Nowak
+14,,18.0,Esa Amin,Tianrui Chai,Rachel Hawken,Dhipak Bala*,Guillermo Lopezsilvarrey montero
+15,,7.0,Michael Ho,Albert Valiaveedu*,Timothy Hurley,Shaoting Wu
+16,,18.0,Kathryn Donlin,Brody Ryan*,Sarah Osman,Qinan Zhou,Jiawei Dai*
+17,,10.0,Parthan Jha,Varun Sarvaiya*,Luwen Sun,Yefei Si*,So hyeon Youn
+18,,11.0,Cole Brooker,Xinhe Chen,Connor Chu,Nathaniel Clough*,Kyung jun Lee
+19,,24.0,Charles Jansen,Nithin Rajkumar,Tatiana Schaffer,Joseph Uhrich,Sunyu Wang
+20,,12.0,Mitch Allen,Patrick Mcgrail*,Salaam Qatanani,Daniel Peterson*,Gordon Zak
+21,,15.0,Rachel Burroughs,Alexander Craffmendez*,Thomas Penicook,Robert Wolf*,John Speckels
+22,,7.0,Mary kate Nowak,Theodore Reimann*,Taylor Smairat,Tyler Tran,Huaiyu Chen*
+23,,23.0,Beatriz Acosta bejarano,Ines Avello,Aaron Cheng,Jaime Guerrero,Matthew Jedziniak
+24,,13.0,Nabarun Banerjee,Tanner Koehne*,Jack Mahoney,Andrew Thompson*,Ben Van arsdale
+25,,9.0,Zhang Chi,James Nie,Omar Darwish*,Ankit Sengupta,Harsha Sankar*
+26,,20.0,Chanchali Agrawal,Kevin Peralta,Lea Savard,Ian Feign*,Shao hao Sng
+27,,15.0,Wesley Kramer,Michelle Roth,Kristina Miller*,Kevin Wandke,Carter Wood*
 
-Total satisfaction,369.0
+Total satisfaction,391.0
 Num unsatisfied,0
 Unsatisfied students
 * - student is a partner of student to the left
