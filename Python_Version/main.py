@@ -1,6 +1,6 @@
 from GGA import *
 
-def get_best_runs(num_iter=5, dir='../data/Run10_noGPAweight/'):
+def get_best_runs(num_iter=3, dir='../data/Run10_noGPAweight/'):
     ga_results = []
     best_fitness = 0
     fit_index = 0
@@ -39,7 +39,7 @@ def get_best_runs(num_iter=5, dir='../data/Run10_noGPAweight/'):
     return (ga_results[fit_index], ga_results[bsat_index], ga_results[msat_index])
 
 def main():
-    best_fit, best_sat, most_sat = get_best_runs(dir='../data/')
+    best_fit, best_sat, most_sat = get_best_runs()
 
 
 if __name__ == '__main__':

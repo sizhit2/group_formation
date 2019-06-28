@@ -81,6 +81,7 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
         temp_cost_val = new_pop[0].fitness
 
         # Reassign and re-evaluate fitness
+        new_pop = OptimizationFunctions.reassign_students(new_pop, student_list, reassign, max_students_per_proj)
         new_pop = OptimizationFunctions.reassign_students_alternative(new_pop, student_list, reassign, max_students_per_proj)
         new_pop = OptimizationFunctions.evaluate_fitness(new_pop, student_list, max_satisfaction, class_avg_gpa, avg_size_group, gamma_gpa, gamma)
         new_pop.sort(key= lambda ind: ind.fitness, reverse=True)
@@ -122,6 +123,9 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
         if iter_check > 10 and converged and reassign == -1:
             reassign = 1
         if iter_check > 30 and converged:
+            if iter < 150:
+                mutation_prob *= 1.2
+                continue
             break
 
         # For the next iteration
