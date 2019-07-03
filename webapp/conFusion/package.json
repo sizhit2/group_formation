@@ -1,0 +1,27 @@
+{
+  "name": "confusion",
+  "version": "1.0.0",
+  "description": "This is a website for Group Formation App",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "clean": "rimraf dist",
+    "copyfonts":"copyfiles -f node_modules/font_awesome/fonts/* dist/fonts",
+    "imagemin":"imagemin img/* -o dist/img"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.14.7"
+  }
+}
