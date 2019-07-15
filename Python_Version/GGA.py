@@ -34,6 +34,14 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
 
     print ("Reading Excel data....")
     student_list = read_from_csv(dir+data_filename, num_projects)
+
+    # To fake GPA stuff
+    gpa_list = np.random.normal(2.5, 0.1, num_students)
+    for (i, stud) in enumerate(student_list):
+        stud.gpa = gpa_list[i]
+        if stud.selected_partner:
+            stud.partner_gpa = gpa_list[i]
+
     student_pref_matrix = np.zeros((num_students, num_projects))
     max_satisfaction = 0
     for i, student in enumerate(student_list):
@@ -161,8 +169,9 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
     print ("Generations benefitting from reassign:", reassign_generations)
     # print("Number of generations to converge: %d" % iter)
     print("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
-    # print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
+    print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
     # export_individual_to_csv(best_chromosome, student_list)
+    export_individual_to_csv(best_chromosome, student_list, filename='debug_teams.csv', dir='')
     return (total_satisfaction, most_satisfied, best_chromosome.fitness,
             best_chromosome.num_student_per_project, iter, seconds_taken,
             best_chromosome, student_list)

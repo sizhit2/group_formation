@@ -153,7 +153,7 @@ class OptimizationFunctions(object):
             sigma = sigma / individual.num_projects
 
         # Cost associated with average GPA per project
-        sigma_gpa = 0
+        sigma_gpa = 0.0
         if abs(gamma_gpa) > 0.0:
             fictitious_num_students = np.zeros(individual.num_projects)
             for stud in range(individual.num_students):
@@ -163,18 +163,19 @@ class OptimizationFunctions(object):
                     pair_gpa += student_list[stud].partner_gpa
                     pair_gpa = pair_gpa / 2
 
-                # Add all GPAs per project
-                for proj in range(individual.num_projects):
-                    fictitious_num_students[proj] += individual.dv_matrix[stud, proj]
-                    individual.avg_gpa_per_project[proj] += pair_gpa * individual.dv_matrix[stud, proj]
+                proj = individual.chrom[stud]
+                fictitious_num_students[proj] += 1
+                individual.avg_gpa_per_project[proj] += pair_gpa
 
+            # print (individual.avg_gpa_per_project)
+            # print (fictitious_num_students)
             # Getting variance of average GPA per project
             for proj in range(individual.num_projects):
                 if fictitious_num_students[proj] != 0:
                     individual.avg_gpa_per_project[proj] /= fictitious_num_students[proj]
                     sigma_gpa += (individual.avg_gpa_per_project[proj] - class_avg_gpa) ** 2
             sigma_gpa /= individual.num_projects
-
+        # print (sigma_gpa)
         # Combine the 3 costs to get the final fitness
         individual.fitness = satisfaction_score
         if sigma > 0:
@@ -375,26 +376,40 @@ def test_main():
     ind = Individual(num_projects, num_students, 2)
 
     # Get student list and preference matrix
-    student_list = read_from_csv("../data/StudentPreferenceSpring2019_PredetTeamRemoved.csv", 28)
+    student_list = read_from_csv("../data/StudentPreferenceSpring2019_PredetTeamRemoved.csv", 27)
     student_pref_matrix = np.zeros((100, 27))
     for i, student in enumerate(student_list):
         student_pref_matrix[i, :] = student.project_preferences
+
+    gpa_list = np.random.normal(2.5, 0.1, num_students)
+    # print (gpa_list)
+    for (i, stud) in enumerate(student_list):
+        stud.gpa = gpa_list[i]
+        if stud.selected_partner:
+            stud.partner_gpa = gpa_list[i]
+
+    # for i in range(len(student_list)):
+    #     print (student_list[i].gpa)
+
 
     for j in range(num_students):
         ind.chrom[j] = np.random.randint(0, high=num_projects)
     for j in range(num_projects):
         ind.chrom[num_students + j] = j
 
-    # print (ind.chrom)
-    # ind = get_ind_students_per_project_ind(student_list, ind)
-    # print (ind.num_student_per_project)
-    # ind = fill_ind_dv_matrix(ind)
-    ind = OptimizationFunctions.repair_ind_dv_matrix(ind, 5, student_list)
-    print("After:")
-    print(ind.chrom)
-    print(sum(ind.num_student_per_project))
+    ind = OptimizationFunctions.evaluate_ind_fitness(ind, student_list, 485, 2.5, gamma=2, gamma_gpa=2)
+    print (ind.fitness)
 
-    print(len([stud for stud in student_list if stud.selected_partner]))
+    # print (ind.chrom)
+    # # ind = get_ind_students_per_project_ind(student_list, ind)
+    # # print (ind.num_student_per_project)
+    # # ind = fill_ind_dv_matrix(ind)
+    # ind = OptimizationFunctions.repair_ind_dv_matrix(ind, 5, student_list)
+    # print("After:")
+    # print(ind.chrom)
+    # print(sum(ind.num_student_per_project))
+    #
+    # print(len([stud for stud in student_list if stud.selected_partner]))
 
 if __name__ == '__main__':
     test_main()

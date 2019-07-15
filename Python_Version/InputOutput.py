@@ -109,7 +109,8 @@ def export_individual_to_csv(ind, student_list, dir='../data/output/',
                     if sat == 0:
                         num_unsatisfied += 1
                         unsatisfied_students.append(name)
-            write_row = [row+1, None, group_satisfaction] + student_names
+            avg_gpa = ind.avg_gpa_per_project[row]
+            write_row = [row+1, avg_gpa, group_satisfaction] + student_names
             data_writer.writerow(write_row)
 
         # Write empty row
