@@ -153,6 +153,7 @@ class OptimizationFunctions(object):
             sigma = sigma / individual.num_projects
 
         # Cost associated with average GPA per project
+        individual.avg_gpa_per_project = np.zeros(individual.num_projects)
         sigma_gpa = 0.0
         if abs(gamma_gpa) > 0.0:
             fictitious_num_students = np.zeros(individual.num_projects)
@@ -167,15 +168,15 @@ class OptimizationFunctions(object):
                 fictitious_num_students[proj] += 1
                 individual.avg_gpa_per_project[proj] += pair_gpa
 
-            # print (individual.avg_gpa_per_project)
-            # print (fictitious_num_students)
             # Getting variance of average GPA per project
             for proj in range(individual.num_projects):
                 if fictitious_num_students[proj] != 0:
                     individual.avg_gpa_per_project[proj] /= fictitious_num_students[proj]
+
                     sigma_gpa += (individual.avg_gpa_per_project[proj] - class_avg_gpa) ** 2
+
             sigma_gpa /= individual.num_projects
-        # print (sigma_gpa)
+
         # Combine the 3 costs to get the final fitness
         individual.fitness = satisfaction_score
         if sigma > 0:

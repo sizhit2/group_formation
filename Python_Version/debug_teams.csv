@@ -1,0 +1,33 @@
+Project,Average GPA,Group satisfaction,Student names
+1,3.353333333333333,12.0,First_name_9 Last_name_9,Partner_first_name_3 Partner_last_name_3*,First_name_47 Last_name_47,Partner_first_name_13 Partner_last_name_13*,First_name_93 Last_name_93
+2,3.7199999999999998,17.0,First_name_34 Last_name_34,First_name_60 Last_name_60,Partner_first_name_20 Partner_last_name_20*,First_name_64 Last_name_64,First_name_85 Last_name_85
+3,3.2475,17.0,First_name_37 Last_name_37,First_name_45 Last_name_45,First_name_52 Last_name_52,Partner_first_name_17 Partner_last_name_17*,First_name_57 Last_name_57
+4,3.4683333333333333,12.0,First_name_58 Last_name_58,Partner_first_name_19 Partner_last_name_19*,First_name_75 Last_name_75,Partner_first_name_26 Partner_last_name_26*,First_name_76 Last_name_76
+5,3.47375,18.0,First_name_25 Last_name_25,First_name_41 Last_name_41,First_name_87 Last_name_87,Partner_first_name_29 Partner_last_name_29*,First_name_91 Last_name_91
+6,3.64625,12.0,First_name_18 Last_name_18,Partner_first_name_6 Partner_last_name_6*,First_name_42 Last_name_42,First_name_63 Last_name_63,First_name_67 Last_name_67
+7,3.5775,16.0,First_name_4 Last_name_4,First_name_13 Last_name_13,First_name_44 Last_name_44,First_name_59 Last_name_59
+8,3.6350000000000002,18.0,First_name_23 Last_name_23,First_name_24 Last_name_24,First_name_68 Last_name_68,Partner_first_name_23 Partner_last_name_23*,First_name_70 Last_name_70
+9,3.83625,15.0,First_name_15 Last_name_15,First_name_31 Last_name_31,First_name_79 Last_name_79,First_name_99 Last_name_99,Partner_first_name_33 Partner_last_name_33*
+10,3.41125,15.0,First_name_11 Last_name_11,Partner_first_name_4 Partner_last_name_4*,First_name_32 Last_name_32,First_name_50 Last_name_50,First_name_82 Last_name_82
+11,3.2375,18.0,First_name_7 Last_name_7,Partner_first_name_2 Partner_last_name_2*,First_name_14 Last_name_14,First_name_39 Last_name_39,First_name_78 Last_name_78
+12,3.6774999999999998,20.0,First_name_27 Last_name_27,First_name_65 Last_name_65,Partner_first_name_22 Partner_last_name_22*,First_name_94 Last_name_94,First_name_96 Last_name_96
+13,3.46625,14.0,First_name_5 Last_name_5,Partner_first_name_1 Partner_last_name_1*,First_name_8 Last_name_8,First_name_20 Last_name_20,First_name_33 Last_name_33
+14,3.3733333333333335,10.0,First_name_12 Last_name_12,Partner_first_name_5 Partner_last_name_5*,First_name_35 Last_name_35,First_name_83 Last_name_83,Partner_first_name_28 Partner_last_name_28*
+15,3.29375,12.0,First_name_17 Last_name_17,First_name_29 Last_name_29,Partner_first_name_10 Partner_last_name_10*,First_name_30 Last_name_30,First_name_56 Last_name_56
+16,3.395,14.0,First_name_19 Last_name_19,First_name_22 Last_name_22,Partner_first_name_8 Partner_last_name_8*,First_name_72 Last_name_72,Partner_first_name_24 Partner_last_name_24*
+17,3.02,9.0,First_name_36 Last_name_36,Partner_first_name_11 Partner_last_name_11*,First_name_49 Last_name_49,Partner_first_name_15 Partner_last_name_15*,First_name_95 Last_name_95
+18,3.6700000000000004,17.0,First_name_26 Last_name_26,First_name_43 Last_name_43,First_name_54 Last_name_54,First_name_86 Last_name_86,First_name_90 Last_name_90
+19,3.522,24.0,First_name_10 Last_name_10,First_name_55 Last_name_55,First_name_62 Last_name_62,First_name_74 Last_name_74,First_name_88 Last_name_88
+20,3.3333333333333335,15.0,First_name_2 Last_name_2,Partner_first_name_0 Partner_last_name_0*,First_name_3 Last_name_3,First_name_92 Last_name_92,Partner_first_name_31 Partner_last_name_31*
+21,3.3712500000000003,20.0,First_name_1 Last_name_1,First_name_40 Last_name_40,First_name_53 Last_name_53,Partner_first_name_18 Partner_last_name_18*,First_name_97 Last_name_97
+22,3.40125,17.0,First_name_0 Last_name_0,First_name_69 Last_name_69,First_name_77 Last_name_77,First_name_89 Last_name_89,Partner_first_name_30 Partner_last_name_30*
+23,3.5237499999999997,17.0,First_name_16 Last_name_16,First_name_61 Last_name_61,Partner_first_name_21 Partner_last_name_21*,First_name_66 Last_name_66,First_name_84 Last_name_84
+24,3.44,10.0,First_name_71 Last_name_71,First_name_81 Last_name_81,Partner_first_name_27 Partner_last_name_27*,First_name_98 Last_name_98,Partner_first_name_32 Partner_last_name_32*
+25,3.56,14.0,First_name_6 Last_name_6,First_name_21 Last_name_21,Partner_first_name_7 Partner_last_name_7*,First_name_51 Last_name_51,Partner_first_name_16 Partner_last_name_16*
+26,3.48,15.0,First_name_46 Last_name_46,First_name_48 Last_name_48,Partner_first_name_14 Partner_last_name_14*,First_name_73 Last_name_73,Partner_first_name_25 Partner_last_name_25*
+27,3.103333333333333,15.0,First_name_28 Last_name_28,Partner_first_name_9 Partner_last_name_9*,First_name_38 Last_name_38,Partner_first_name_12 Partner_last_name_12*,First_name_80 Last_name_80
+
+Total satisfaction,413.0
+Num unsatisfied,0
+Unsatisfied students
+* - student is a partner of student to the left

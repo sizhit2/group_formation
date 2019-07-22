@@ -1,0 +1,101 @@
+Last Name,First Name,GPA,Selected Partner?,Project 1,Project 2,Project 3,Project 4,Project 6,Project 7,Project 8,Project 9,Project 10,Project 11,Project 12,Project 13,Project 14,Project 15,Project 16,Project 17,Project 18,Project 19,Project 20,Project 21,Project 22,Project 23,Project 24,Project 25,Project 26,Project 27,Project 28,Partner Last,Partner First,Partner GPA,User Major,Partner Major
+last_name_0,first_name_0,3.92,0,0,0,0,0,0,0,0,0,3,0,0,0,1,0,1,0,0,0,0,3,3,5,5,0,1,0,3,,,,Nondegree (Exchange),
+last_name_1,first_name_1,3.35,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,5,0,5,3,0,0,0,5,1,,,,Mechanical Engineering,
+last_name_2,first_name_2,3.88,1,1,0,1,0,5,0,0,1,0,1,0,0,0,0,0,0,0,0,5,5,5,0,0,0,0,0,1,partner_last_name_0,partner_first_name_0,3.75,Mechanical Engineering,Mechanical Engineering
+last_name_3,first_name_3,3.27,0,0,0,1,1,0,0,0,0,1,0,0,0,0,5,0,0,0,0,5,5,5,2,0,0,0,0,0,,,,Engineering Mechanics,
+last_name_4,first_name_4,3.63,0,2,0,0,4,0,0,5,3,2,0,3,0,0,3,0,0,0,0,0,1,0,0,2,0,0,0,0,,,,Mechanical Engineering,
+last_name_5,first_name_5,3.2,1,0,0,3,0,2,0,0,0,0,2,3,0,2,0,0,2,0,0,0,0,4,0,0,0,2,0,5,partner_last_name_1,partner_first_name_1,3.21,Mechanical Engineering,Mechanical Engineering
+last_name_6,first_name_6,3.85,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,4,0,0,4,0,0,0,5,0,5,0,4,,,,Nondegree (Exchange),
+last_name_7,first_name_7,3.58,1,0,0,1,0,2,0,1,0,0,0,3,5,0,0,0,0,0,0,1,2,0,0,0,5,3,0,2,partner_last_name_2,partner_first_name_2,3.6,Mechanical Engineering,Mechanical Engineering
+last_name_8,first_name_8,3.51,0,0,0,0,3,0,0,0,0,0,0,5,4,5,0,0,1,0,0,0,0,0,0,3,0,0,1,0,,,,Mechanical Engineering,
+last_name_9,first_name_9,3.6,1,5,0,0,0,0,0,0,0,0,4,0,0,0,0,1,0,0,0,2,0,4,0,1,0,0,4,4,partner_last_name_3,partner_first_name_3,3.09,Mechanical Engineering,Mechanical Engineering
+last_name_10,first_name_10,2.77,0,1,0,0,0,0,0,0,0,0,3,0,0,0,3,0,0,0,3,4,2,4,0,2,0,0,0,0,,,,Mechanical Engineering,
+last_name_11,first_name_11,2.96,1,2,0,0,0,4,0,0,0,0,4,0,4,0,0,1,0,0,0,5,0,3,0,0,0,0,0,2,partner_last_name_4,partner_first_name_4,3.95,Mechanical Engineering,Mechanical Engineering
+last_name_12,first_name_12,3.73,1,0,0,0,0,2,0,0,0,0,0,0,0,0,3,0,0,1,0,4,0,5,0,2,0,0,5,0,partner_last_name_5,partner_first_name_5,3.38,Mechanical Engineering,Mechanical Engineering
+last_name_13,first_name_13,3.81,0,2,1,0,0,5,0,5,0,5,0,0,0,1,5,0,0,0,0,0,0,0,0,0,1,0,0,0,,,,Engineering Mechanics,
+last_name_14,first_name_14,2.27,0,2,0,2,0,0,0,0,0,2,0,5,2,0,0,0,0,3,2,0,0,0,1,3,1,0,0,2,,,,Mechanical Engineering,
+last_name_15,first_name_15,3.72,0,0,0,3,0,0,5,0,0,4,5,0,0,0,3,0,0,0,0,0,3,0,1,0,0,0,0,1,,,,Engineering Mechanics,
+last_name_16,first_name_16,3.23,0,0,0,1,0,2,0,0,0,3,0,0,2,0,0,0,0,4,2,4,0,0,0,4,0,0,0,3,,,,Mechanical Engineering,
+last_name_17,first_name_17,3.91,0,1,4,2,0,2,3,0,0,0,0,0,2,0,0,2,0,2,0,0,0,2,0,2,0,3,0,0,,,,Engineering Mechanics,
+last_name_18,first_name_18,3.14,1,0,2,0,0,1,3,0,0,0,0,0,1,0,0,0,0,0,3,4,1,5,1,2,0,0,0,0,partner_last_name_6,partner_first_name_6,3.27,Mechanical Engineering,Mechanical Engineering
+last_name_19,first_name_19,3.42,0,0,3,0,4,3,0,0,0,1,0,0,0,0,0,0,3,0,0,2,2,0,0,3,0,0,0,0,,,,Mechanical Engineering,
+last_name_20,first_name_20,3.84,0,0,0,3,0,2,0,0,0,0,0,4,0,4,1,0,0,0,0,3,2,3,0,0,0,0,0,0,,,,Mechanical Engineering,
+last_name_21,first_name_21,3.06,1,0,3,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2,5,3,5,0,0,0,5,0,0,partner_last_name_7,partner_first_name_7,2.96,Mechanical Engineering,Mechanical Engineering
+last_name_22,first_name_22,2.75,1,0,0,0,2,0,0,0,0,2,0,0,0,1,3,0,10,0,0,2,0,3,0,0,0,0,2,0,partner_last_name_8,partner_first_name_8,3.33,Mechanical Engineering,Mechanical Engineering
+last_name_23,first_name_23,3.61,0,0,2,2,3,0,0,0,4,0,1,5,3,0,0,0,0,0,0,0,0,0,1,0,2,0,0,0,,,,Nondegree (Exchange),
+last_name_24,first_name_24,3.27,0,0,2,2,5,3,0,0,5,0,0,0,0,0,0,0,0,0,0,3,0,3,0,0,0,0,2,0,,,,Mechanical Engineering,
+last_name_25,first_name_25,3.56,0,1,0,0,0,5,0,0,1,0,0,0,3,0,2,0,0,1,0,0,0,2,1,4,0,0,4,1,,,,Mechanical Engineering,
+last_name_26,first_name_26,3.73,0,0,0,0,0,0,2,2,0,2,0,0,2,0,0,0,1,2,3,0,2,0,0,5,0,4,0,0,,,,Nondegree (Exchange),
+last_name_27,first_name_27,3.76,0,0,4,0,0,1,0,0,0,0,0,3,5,0,0,0,0,0,0,0,0,1,0,0,0,4,4,3,,,,Mechanical Engineering,
+last_name_28,first_name_28,3.34,1,1,0,0,1,0,0,0,0,0,0,0,1,0,4,0,0,0,0,0,0,0,0,3,0,4,4,5,partner_last_name_9,partner_first_name_9,2.65,Mechanical Engineering,Mechanical Engineering
+last_name_29,first_name_29,3.81,1,0,0,3,0,4,0,0,0,0,0,0,0,0,0,2,0,0,0,4,2,5,0,3,2,0,0,0,partner_last_name_10,partner_first_name_10,3.38,Mechanical Engineering,Engineering Mechanics
+last_name_30,first_name_30,2.52,0,3,0,0,0,0,0,0,0,1,3,2,0,0,0,3,0,0,3,0,0,0,0,0,0,0,2,5,,,,Engineering Mechanics,
+last_name_31,first_name_31,3.83,0,0,3,0,0,0,0,0,0,4,0,0,0,0,0,0,0,2,2,5,0,0,0,0,3,0,1,1,,,,Mechanical Engineering,
+last_name_32,first_name_32,3.5,0,0,0,0,0,1,0,0,2,1,5,0,0,0,0,1,0,0,0,5,0,5,0,1,0,0,1,2,,,,Mechanical Engineering,
+last_name_33,first_name_33,3.31,0,0,0,1,0,0,0,0,0,0,0,0,0,3,0,0,0,2,2,0,4,4,0,0,0,0,4,5,,,,Mechanical Engineering,
+last_name_34,first_name_34,3.68,0,0,3,2,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,5,0,2,2,3,0,4,0,0,,,,Mechanical Engineering,
+last_name_35,first_name_35,3.12,0,0,0,0,0,3,0,0,0,0,0,0,3,0,3,0,0,0,0,2,0,3,0,4,0,0,2,3,,,,Mechanical Engineering,
+last_name_36,first_name_36,3.18,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,1,3,5,0,2,4,4,partner_last_name_11,partner_first_name_11,2.92,Mechanical Engineering,Mechanical Engineering
+last_name_37,first_name_37,2.38,0,2,3,5,0,0,0,1,0,5,0,0,0,0,0,0,0,3,2,0,0,0,0,1,0,0,0,3,,,,Engineering Mechanics,
+last_name_38,first_name_38,2.61,1,4,0,0,0,2,0,0,0,4,0,0,0,0,0,0,0,0,0,3,0,2,0,0,0,0,3,5,partner_last_name_12,partner_first_name_12,3.42,Mechanical Engineering,Mechanical Engineering
+last_name_39,first_name_39,3.68,0,0,1,0,0,0,3,3,0,0,2,5,0,0,0,0,0,0,0,0,3,0,0,0,2,0,0,3,,,,Mechanical Engineering,
+last_name_40,first_name_40,2.95,0,0,0,0,3,0,0,0,2,1,0,0,5,0,0,1,0,0,0,2,0,5,0,4,2,0,0,0,,,,Mechanical Engineering,
+last_name_41,first_name_41,3.62,0,0,0,0,0,3,0,0,0,0,1,0,3,0,0,0,0,1,1,3,0,1,2,3,0,0,3,3,,,,Mechanical Engineering,
+last_name_42,first_name_42,3.91,0,0,2,3,0,1,2,0,0,0,0,1,0,0,0,0,0,0,0,2,0,2,0,3,0,0,4,5,,,,Mechanical Engineering,
+last_name_43,first_name_43,3.66,0,0,2,0,1,0,2,0,0,3,0,0,2,0,4,0,0,0,3,0,3,0,0,0,2,3,0,0,,,,Nondegree (Exchange),
+last_name_44,first_name_44,3.73,0,0,2,0,0,2,0,2,2,2,0,0,0,0,0,0,2,1,1,0,2,0,2,1,1,1,3,1,,,,Nondegree (Exchange),
+last_name_45,first_name_45,3.87,0,1,0,3,0,0,1,0,0,0,0,0,4,0,0,0,0,3,3,0,0,5,0,0,0,0,0,5,,,,Mechanical Engineering,
+last_name_46,first_name_46,3.07,0,0,0,1,0,3,0,0,0,0,0,0,0,1,0,0,0,0,0,4,0,2,0,0,0,0,5,5,,,,Mechanical Engineering,
+last_name_47,first_name_47,2.92,1,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,4,0,0,3,4,1,0,1,partner_last_name_13,partner_first_name_13,2.91,Mechanical Engineering,Mechanical Engineering
+last_name_48,first_name_48,3.79,1,0,2,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,3,0,0,0,0,0,1,4,5,3,partner_last_name_14,partner_first_name_14,3.49,Mechanical Engineering,Mechanical Engineering
+last_name_49,first_name_49,3.47,1,0,0,1,0,1,1,1,1,1,0,5,0,0,1,2,0,2,2,1,1,3,2,0,0,0,0,0,partner_last_name_15,partner_first_name_15,3.51,Mechanical Engineering,Mechanical Engineering
+last_name_50,first_name_50,3.44,0,0,0,3,0,3,0,0,0,0,4,0,0,0,2,0,0,3,0,0,3,0,0,0,0,0,4,3,,,,Mechanical Engineering,
+last_name_51,first_name_51,3.99,1,0,0,0,0,0,0,0,0,1,2,0,3,0,0,0,1,0,0,5,0,0,0,0,0,4,3,2,partner_last_name_16,partner_first_name_16,3.65,Mechanical Engineering,Mechanical Engineering
+last_name_52,first_name_52,3.64,1,0,0,5,0,0,0,0,0,0,3,0,0,0,0,0,2,0,0,4,0,5,0,0,0,2,3,0,partner_last_name_17,partner_first_name_17,3.84,Mechanical Engineering,Mechanical Engineering
+last_name_53,first_name_53,3.3,1,0,0,0,0,3,0,0,0,0,0,0,1,0,0,0,0,0,0,3,0,5,2,2,0,1,4,0,partner_last_name_18,partner_first_name_18,3.75,Mechanical Engineering,Mechanical Engineering
+last_name_54,first_name_54,3.43,0,0,0,2,0,0,1,0,0,3,1,0,0,1,0,0,0,0,4,2,0,1,0,0,1,2,2,5,,,,Mechanical Engineering,
+last_name_55,first_name_55,3.93,0,0,0,0,3,5,0,0,0,2,2,0,1,0,0,0,0,0,0,5,0,0,0,4,0,0,3,0,,,,Mechanical Engineering,
+last_name_56,first_name_56,3.15,0,5,0,1,0,1,2,0,0,0,0,0,0,0,1,5,4,0,0,0,0,0,0,3,0,3,0,0,,,,Engineering Mechanics,
+last_name_57,first_name_57,3,0,0,0,4,1,3,0,0,0,0,0,0,0,0,2,0,0,0,0,5,0,5,4,0,0,0,0,1,,,,Mechanical Engineering,
+last_name_58,first_name_58,3.77,1,2,0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,0,5,0,3,0,0,0,3,partner_last_name_19,partner_first_name_19,3.84,Mechanical Engineering,Mechanical Engineering
+last_name_59,first_name_59,3.14,0,0,0,1,0,1,0,4,1,4,0,0,0,0,0,0,1,0,2,0,4,0,2,3,2,0,0,0,,,,Mechanical Engineering,
+last_name_60,first_name_60,3.29,1,0,5,0,0,0,2,1,0,0,0,5,0,4,0,0,2,0,0,0,0,0,1,0,3,0,0,2,partner_last_name_20,partner_first_name_20,3.55,Mechanical Engineering,Mechanical Engineering
+last_name_61,first_name_61,2.93,1,1,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,5,0,4,0,0,5,0,partner_last_name_21,partner_first_name_21,3.28,Mechanical Engineering,Mechanical Engineering
+last_name_62,first_name_62,3.73,0,0,0,0,0,4,0,0,0,0,0,0,2,0,0,0,0,0,0,5,1,5,0,0,0,1,5,2,,,,Mechanical Engineering,
+last_name_63,first_name_63,3.81,0,0,4,0,0,0,4,2,3,2,0,3,0,0,0,0,2,3,2,0,0,0,0,0,0,0,0,0,,,,Nondegree (Exchange),
+last_name_64,first_name_64,3.9,0,0,4,0,0,4,0,0,2,0,4,5,2,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,,,,Mechanical Engineering,
+last_name_65,first_name_65,3.15,1,2,2,0,0,2,3,0,0,0,0,3,5,0,0,0,0,0,0,0,0,0,3,0,0,0,5,0,partner_last_name_22,partner_first_name_22,3.87,Mechanical Engineering,Mechanical Engineering
+last_name_66,first_name_66,3.92,0,0,1,0,2,1,0,0,0,0,0,0,4,0,0,0,0,0,0,2,0,2,2,5,0,4,0,2,,,,Mechanical Engineering,
+last_name_67,first_name_67,3.66,0,0,3,0,0,0,3,3,4,0,2,5,0,0,0,0,0,0,0,0,0,0,0,1,1,3,0,0,,,,Engineering Mechanics,
+last_name_68,first_name_68,3.9,1,0,1,2,5,2,0,0,4,0,0,0,3,0,0,0,0,0,0,0,3,0,0,5,0,0,0,0,partner_last_name_23,partner_first_name_23,3.76,Mechanical Engineering,Mechanical Engineering
+last_name_69,first_name_69,3.37,0,0,0,3,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,5,0,5,4,0,0,1,0,2,,,,Mechanical Engineering,
+last_name_70,first_name_70,3.83,0,0,3,0,3,1,0,2,5,0,0,3,0,0,2,0,0,0,0,0,1,0,0,5,0,0,0,0,,,,Mechanical Engineering,
+last_name_71,first_name_71,2.78,0,3,0,0,0,4,0,0,0,1,0,0,0,0,0,2,3,2,2,1,1,3,1,0,1,1,0,0,,,,Mechanical Engineering,
+last_name_72,first_name_72,3.64,1,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,5,0,5,0,0,0,0,5,5,partner_last_name_24,partner_first_name_24,3.81,Mechanical Engineering,Mechanical Engineering
+last_name_73,first_name_73,3.94,1,3,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,4,0,0,0,0,5,4,partner_last_name_25,partner_first_name_25,3.52,Engineering Mechanics,Engineering Mechanics
+last_name_74,first_name_74,3.24,0,0,0,3,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,5,0,4,0,0,0,3,3,4,,,,Mechanical Engineering,
+last_name_75,first_name_75,3.25,1,0,0,0,4,0,0,0,0,0,0,0,0,0,2,0,0,0,0,4,0,5,0,3,0,2,4,1,partner_last_name_26,partner_first_name_26,3.39,Mechanical Engineering,Mechanical Engineering
+last_name_76,first_name_76,3.28,0,1,0,0,5,4,0,3,4,0,0,2,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,Mechanical Engineering,
+last_name_77,first_name_77,3.11,0,0,0,1,1,2,0,0,0,0,0,0,3,0,0,0,0,0,0,5,0,4,4,0,0,0,0,0,,,,Mechanical Engineering,
+last_name_78,first_name_78,3.41,0,0,0,0,0,2,0,0,0,0,4,5,0,0,0,0,0,0,2,2,4,0,0,0,0,0,2,3,,,,Mechanical Engineering,
+last_name_79,first_name_79,3.9,0,2,0,0,0,4,0,0,0,3,0,0,4,0,0,0,0,0,0,1,2,1,3,0,0,0,5,0,,,,Mechanical Engineering,
+last_name_80,first_name_80,3.3,0,1,0,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,2,5,5,0,1,0,2,0,5,,,,Mechanical Engineering,
+last_name_81,first_name_81,3.57,1,0,3,5,0,0,0,0,0,3,0,0,0,0,0,0,2,3,2,0,0,0,0,0,4,2,0,1,partner_last_name_27,partner_first_name_27,3.75,Engineering Mechanics,Engineering Mechanics
+last_name_82,first_name_82,3.25,0,0,0,4,0,4,0,0,0,0,2,0,5,0,0,0,0,0,0,1,0,5,1,0,0,0,3,0,,,,Mechanical Engineering,
+last_name_83,first_name_83,2.97,1,0,0,0,0,1,0,0,0,0,0,2,0,0,4,0,2,0,0,2,0,3,1,3,0,0,3,0,partner_last_name_28,partner_first_name_28,3.92,Mechanical Engineering,Mechanical Engineering
+last_name_84,first_name_84,3.84,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,4,1,4,0,4,0,2,3,4,,,,Mechanical Engineering,
+last_name_85,first_name_85,3.88,0,0,5,0,2,0,2,1,4,0,0,5,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,1,,,,Mechanical Engineering,
+last_name_86,first_name_86,3.58,0,0,0,3,1,0,0,3,1,3,0,0,0,0,0,0,0,0,4,0,0,5,0,0,4,0,0,1,,,,Engineering Mechanics,
+last_name_87,first_name_87,3.93,1,1,0,0,0,5,0,1,0,0,0,5,2,0,0,0,0,0,0,3,0,0,0,3,0,0,0,5,partner_last_name_29,partner_first_name_29,3.5,Mechanical Engineering,Mechanical Engineering
+last_name_88,first_name_88,3.94,0,0,0,1,0,0,2,0,0,1,2,0,0,0,0,0,0,2,2,5,2,0,2,0,0,3,0,3,,,,Mechanical Engineering,
+last_name_89,first_name_89,3.22,1,0,0,4,2,2,1,0,0,0,0,0,1,0,0,0,0,0,0,0,4,1,4,2,0,0,0,4,partner_last_name_30,partner_first_name_30,3.19,Mechanical Engineering,Mechanical Engineering
+last_name_90,first_name_90,3.95,0,2,0,2,0,0,0,0,0,3,0,0,5,0,0,0,0,3,3,2,0,0,0,0,0,0,3,2,,,,Mechanical Engineering,
+last_name_91,first_name_91,3,0,0,0,1,0,5,1,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0,0,0,0,5,5,,,,Mechanical Engineering,
+last_name_92,first_name_92,2.7,1,0,0,1,5,5,0,0,0,1,0,0,0,0,1,0,0,0,0,0,5,1,5,1,0,0,0,0,partner_last_name_31,partner_first_name_31,3.13,Mechanical Engineering,Mechanical Engineering
+last_name_93,first_name_93,3.8,0,3,0,0,1,3,0,0,0,2,0,2,0,0,0,2,0,0,0,3,0,3,4,0,0,2,0,0,,,,Engineering Mechanics,
+last_name_94,first_name_94,3.93,0,0,0,3,0,0,2,1,0,0,0,0,5,0,0,0,0,0,0,1,0,1,1,0,0,2,1,3,,,,Engineering Mechanics,
+last_name_95,first_name_95,2.52,0,1,0,4,0,0,0,0,0,1,0,5,0,0,0,0,0,4,0,4,0,0,0,0,0,0,1,0,,,,Mechanical Engineering,
+last_name_96,first_name_96,3.51,0,0,1,0,0,5,4,0,0,0,0,0,5,0,0,0,0,0,0,0,4,2,0,1,0,0,3,0,,,,Mechanical Engineering,
+last_name_97,first_name_97,3.66,0,3,0,0,3,1,0,0,0,2,0,0,1,0,0,1,0,0,0,2,0,5,5,0,0,2,0,0,,,,Engineering Mechanics,
+last_name_98,first_name_98,3.9,1,0,0,1,1,0,0,0,0,0,0,0,5,3,0,0,4,0,0,0,0,0,0,0,5,4,2,0,partner_last_name_32,partner_first_name_32,3.86,Mechanical Engineering,Mechanical Engineering
+last_name_99,first_name_99,3.94,1,0,0,0,0,0,1,0,0,4,0,0,2,0,0,0,2,0,0,0,0,0,2,1,0,0,5,3,partner_last_name_33,partner_first_name_33,3.85,Mechanical Engineering,Engineering Mechanics

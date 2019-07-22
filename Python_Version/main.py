@@ -30,7 +30,7 @@ def get_best_runs(num_iter=3, dir='../data/Run10_noGPAweight/'):
                 msat_index = i
                 most_satisfied = result[1]
         print ('Writing Run #%d to file...' % (i+1))
-        export_individual_to_csv(result[-2], result[-1], filename='Run'+str(i+1)+'_teams.csv')
+        export_individual_to_csv(result[-2], result[-1], filename='Run'+str(i+1)+'_teams.csv', dir='')
         ga_results.append(result)
 
     print ('Best fitness: Run %d' % (fit_index+1))

@@ -6,7 +6,7 @@ from GeneticAlgorithmFunctions import GeneticAlgorithmFunctions
 import copy
 import time
 
-def run_ga(dir='../data/Run10_noGPAweight/'):
+def run_ga(dir='../data/'):
     in_data = parse_input_data(dir+'input_data.txt')
 
     # For the design variable matrix
@@ -35,12 +35,12 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
     print ("Reading Excel data....")
     student_list = read_from_csv(dir+data_filename, num_projects)
 
-    # To fake GPA stuff
-    gpa_list = np.random.normal(2.5, 0.1, num_students)
-    for (i, stud) in enumerate(student_list):
-        stud.gpa = gpa_list[i]
-        if stud.selected_partner:
-            stud.partner_gpa = gpa_list[i]
+    # To fake GPA stuff - comment out when using real data
+    # gpa_list = np.random.normal(2.5, 0.1, num_students)
+    # for (i, stud) in enumerate(student_list):
+    #     stud.gpa = gpa_list[i]
+    #     if stud.selected_partner:
+    #         stud.partner_gpa = gpa_list[i]
 
     student_pref_matrix = np.zeros((num_students, num_projects))
     max_satisfaction = 0
@@ -179,7 +179,7 @@ def run_ga(dir='../data/Run10_noGPAweight/'):
 
 # Temporary to run on new data
 def t_main():
-    run_ga()
+    run_ga(dir='../data/RunX_debug/')
 
 def main():
     num_iter = 5
