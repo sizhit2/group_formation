@@ -1,5 +1,5 @@
 from StructDef import Student, Individual
-from InputOutput import *
+# from InputOutput import *
 import numpy as np
 
 
@@ -172,7 +172,6 @@ class OptimizationFunctions(object):
             for proj in range(individual.num_projects):
                 if fictitious_num_students[proj] != 0:
                     individual.avg_gpa_per_project[proj] /= fictitious_num_students[proj]
-
                     sigma_gpa += (individual.avg_gpa_per_project[proj] - class_avg_gpa) ** 2
 
             sigma_gpa /= individual.num_projects
@@ -369,6 +368,25 @@ class OptimizationFunctions(object):
             if satisfaction > 0:
                 num_students_picked_project += 1
         return num_students_picked_project
+
+    @staticmethod
+    def get_avg_gpa_per_group(individual, student_list):
+        """
+        Gets average gpa per group for an individual. Not needed unless gamma_gpa was 0 all along.
+        :param student_list: list of Student objects for the class
+        :return: list avg_gpa_per_group
+        """
+        avg_gpa_per_group = np.zeros(individual.num_projects)
+        for stud in range(len(student_list)):
+            proj = individual.chrom[stud]
+            student = student_list[stud]
+            avg_gpa_per_group[proj] += student.gpa
+            if student.selected_partner:
+                avg_gpa_per_group[proj] += student.partner_gpa
+
+        for proj in range(individual.num_projects):
+            avg_gpa_per_group[proj] /= individual.num_student_per_project[proj]
+        return avg_gpa_per_group
 
 # Void function to test functionality implemented here
 def test_main():

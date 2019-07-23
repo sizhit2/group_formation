@@ -2,6 +2,7 @@ import csv
 import re
 from StructDef import Student
 from StructDef import Individual
+from OptimizationFunctions import OptimizationFunctions
 
 import pandas as pd
 import numpy as np
@@ -87,6 +88,7 @@ def export_individual_to_csv(ind, student_list, dir='../data/output/',
         unsatisfied_students = []
         num_unsatisfied = 0
         total_satisfaction = 0
+        avg_gpa_per_group = OptimizationFunctions.get_avg_gpa_per_group(ind, student_list)
 
         for row in range(ind.num_projects):
             # Finding teams for each project
@@ -109,7 +111,7 @@ def export_individual_to_csv(ind, student_list, dir='../data/output/',
                     if sat == 0:
                         num_unsatisfied += 1
                         unsatisfied_students.append(name)
-            avg_gpa = ind.avg_gpa_per_project[row]
+            avg_gpa = avg_gpa_per_group[row]
             write_row = [row+1, avg_gpa, group_satisfaction] + student_names
             data_writer.writerow(write_row)
 
