@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Group Formation App</title>
+    <script>
+function addinputFields(){
+    var number = document.getElementById("member").value;
+
+    for (i=1;i<=number;i++){
+
+        var input = document.createElement("input");
+        
+        var descript = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "Enter Project " + i + " Name"
+        
+        descript.type = "text";
+        
+        descript.placeholder = "Enter Project " + i + " description";
+        
+        container.appendChild(input);
+        
+        container.appendChild(descript);
+        container.appendChild(document.createElement("br"));
+    }
+}
+
+function validateForm() {
+    
+  var min = document.forms["myForm"]["minselected"].value;
+  var text;
+  var total = document.forms["myForm"]["totalproject"].value;
+  if (min <= 0) {
+    text="minimum projects selected has to be a positive number";
+    
+  } else {
+     if (min > total) {
+        text = "minimum project selected cannot be greater than total number of projects"
+     } else {
+         text = "input ok"
+     }
+  }
+  document.getElementById("demo1").innerHTML = text;
+}
+</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-togller-icon"></span>
+            </button>
+            <a class="navbar-brand mr-auto" href="./index.html">Group Formation App</a>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span>Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-info fa-lg"></span>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./student.html"><span class="fa fa-list fa-lg"></span>Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header align-items-center">
+                <div class="col-12 col-sm-6">
+                    <h1>Group Formation App</h1>
+                    <p>An app aims to maximize student's satisfaction in group work.</p>
+                </div>
+                <div class="col-12 col-sm">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="container">
+        <div class="row row-content">
+            <div class="col-12 col-md-12">
+                    <div class="col-12">
+                            <h3>Project Info </h3>
+                    </div>
+                    <label for="numberProject" class="col-md-3 col-form-label">Total Number of Project</label>
+                    <input class="col-md-3" type="number" id="member" name="member" value="">
+                    <button class="col-md-1 offset-md-1" id="btn" onclick="addinputFields()">Add</button>
+                 
+                    <div id="container" class="col-12 col-md-10">
+
+                    </div> 
+                
+                
+            </div>  
+            <div class="col-12 col-md-12">
+                    
+                    <form  name="myForm" onsubmit=return validateForm()>
+                        <div class="col-12">
+                            <h3>General Parameter</h3>
+                        </div>
+                        <div class="form-group row">
+                                <label for="totalprojects" class="col-md-3 col-form-label">Total number of projects</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="totalproject" name="totalproject"
+                                        placeholder="Total number of projects">
+                                        <p id="0"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="minprojectselected" class="col-md-3 col-form-label">Minimum project selected</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="minselected" name="minselected"
+                                        placeholder="Minimum project selected">
+                                        <p id="1"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="numstudent" class="col-md-3 col-form-label"> Number of students</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="numstudent" name="numstudent"
+                                        placeholder="Number of students">
+                                        <p id="2"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="maxstudentper" class="col-md-3 col-form-label">Maximum number of students per each project</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="maxstudentper" name="maxstudentper"
+                                        placeholder="Maximum number of students per project">
+                                        <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="col-12">
+                                <h3>Algorithm parameter</h3>
+                        </div>
+                        <div class="form-group row">
+                            <label for="populationsize" class="col-md-3 col-form-label">Population Size</label>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control" id="population" name="population"
+                                        placeholder="default 500" value="500">
+                                <p id="3"></p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="probcrossover" class="col-md-3 col-form-label">Probability of crossover</label>
+                                <div class="col-md-9">
+                                    
+                                    <input type="number" class="form-control" id="probcrossover" name="probcrossover"
+                                            placeholder="default 0.95" value="0.95">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="probmutation" class="col-md-3 col-form-label">Probability of mutation</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="probmutation" name="probmutation"
+                                            placeholder="default 0.1" value ="0.1">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="ncross" class="col-md-3 col-form-label">N_cross</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="ncross" name="ncross"
+                                            placeholder="default 2" value ="2">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="nkeep" class="col-md-3 col-form-label">N_keep</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="nkeep" name="nkeep"
+                                            placeholder="default 2" value ="2">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="col-12">
+                                <h3>Convergence Parameters</h3>
+                        </div>
+                        <div class="form-group row">
+                                <label for="maxiter" class="col-md-3 col-form-label">Maximum number of optimization iterations</label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="maxiter" name="maxiter"
+                                            placeholder="default 1000" value ="1000">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="costtol" class="col-md-3 col-form-label">Cost function change tolerance
+                                    </label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="costtol" name="costtol"
+                                            placeholder="default 1e-6" value ="1e-6">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+                        <div class="gamma">
+                                <h3>Cost Function</h3>
+                        </div>
+                        <div class="form-group row">
+                                <label for="gamma" class="col-md-3 col-form-label">gamma
+                                    </label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="gamma" name="gamma"
+                                            placeholder="default 2" value ="2">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+
+                        <div class="form-group row">
+                                <label for="gamma_gpa" class="col-md-3 col-form-label">gamma gpa
+                                    </label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="gamma_gpa" name="gamma_gpa"
+                                            placeholder="default 2" value ="2">
+                                    <p id="3"></p>
+                                </div>
+                        </div>
+
+                        <div class="form-group row">
+                                <div class="offset-md-2 col-md-10">
+                                    <button type="submit" class="btn btn-primary" onclick="validateForm()">Submit</button>
+                                </div>
+                            </div>
+                    </form>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row row-content">
+                <div class="col-4 col-sm-2">             
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="./contactus.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              
+		           </address>
+                </div>
+                
+                <div class="col-12 col-sm-4">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                </div>
+        </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

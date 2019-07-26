@@ -14,27 +14,79 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Group Formation App</title>
     <script>
+        var totalproject = 0;
+        //var curprojecti = 1;
 function addinputFields(){
     var number = document.getElementById("member").value;
-
+    totalproject += number;
     for (i=1;i<=number;i++){
+        
+        var name = document.createElement("textarea");
+        
+        var short = document.createElement("textarea");
 
-        var input = document.createElement("input");
+        var long = document.createElement("textarea");
         
-        var descript = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "Enter Project " + i + " Name"
+    
+        name.placeholder = "Enter Project  Name"
+        //name.name = "project" + curproject + "name";
+
         
-        descript.type = "text";
+        short.placeholder = "Enter Project short description";
+        //short.name = "project" + curprojecti  + "short";
+        long.placeholder = "Enter Project long description";
+        //long.name = "project" + curprojecti+ "long";
+        //curprojecti += 1;
+
+        var div = document.createElement("div");
         
-        descript.placeholder = "Enter Project " + i + " description";
+        div.appendChild(name);
+        div.appendChild(short);
+        div.appendChild(long);
         
-        container.appendChild(input);
+        container.appendChild(div);
         
-        container.appendChild(descript);
+       
         container.appendChild(document.createElement("br"));
     }
 }
+
+function updateDefault() {
+    
+     document.getElementById("totalpoint").value = parseInt(totalproject) / 2;
+     if (parseInt(totalproject*0.25) < parseInt(2) ) {
+        document.getElementById("minproject").value = parseInt(totalproject*0.25);
+     } else {
+        document.getElementById("minproject").value = parseInt(2);
+     }
+
+     document.getElementById("maxpointper").value =  parseInt(totalproject*3/8+1);
+}
+
+function addGammaField() {
+    var label = document.createElement("label");
+    label.innerText = "scale factor for performance";
+    var gammafield = document.createElement("input");
+  
+    gammafield.value = "1";
+    addgamma.appendChild(document.createElement("br"));
+    addgamma.appendChild(label);
+    addgamma.appendChild(gammafield);
+    
+}
+
+function addGammaGPAField() { 
+    var label = document.createElement("label");
+    label.innerText = "scale factor for performance";
+    var gammafield = document.createElement("input");
+    
+    gammafield.value = "1";
+    addgammagpa.appendChild(document.createElement("br"));
+    addgammagpa.appendChild(label);
+    addgammagpa.appendChild(gammafield);
+}
+
+
 
 function validateForm() {
     
@@ -92,150 +144,260 @@ function validateForm() {
     <div class="container">
         <div class="row row-content">
             <div class="col-12 col-md-12">
-                    <div class="col-12">
-                            <h3>Project Info </h3>
-                    </div>
-                    <label for="numberProject" class="col-md-3 col-form-label">Total Number of Project</label>
-                    <input class="col-md-3" type="number" id="member" name="member" value="">
-                    <button class="col-md-1 offset-md-1" id="btn" onclick="addinputFields()">Add</button>
-                 
-                    <div id="container" class="col-12 col-md-10">
-
-                    </div> 
-                
-                
-            </div>  
+                        
+                <input class="col-md-3" type="number" id="member" name="member" value="" placeholder="Add More Project Fields">
+                <button class="col-md-1 offset-md-1" id="btn" onclick="addinputFields()">Add</button>
+            
+                <div class="col-12 col-md-12" id = "container"> 
+                    
+                </div>
+                    
+            </div>   
             <div class="col-12 col-md-12">
                     
-                    <form  name="myForm" onsubmit=return validateForm()>
-                        <div class="col-12">
-                            <h3>General Parameter</h3>
-                        </div>
+                    <form  name="myForm"  onsubmit="return validateForm()">
+                         
                         <div class="form-group row">
-                                <label for="totalprojects" class="col-md-3 col-form-label">Total number of projects</label>
+                                <label for="jobname" class="col-md-3 col-form-label">Job Name</label>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control" id="totalproject" name="totalproject"
-                                        placeholder="Total number of projects">
-                                        <p id="0"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="minprojectselected" class="col-md-3 col-form-label">Minimum project selected</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="minselected" name="minselected"
-                                        placeholder="Minimum project selected">
-                                        <p id="1"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="numstudent" class="col-md-3 col-form-label"> Number of students</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="numstudent" name="numstudent"
-                                        placeholder="Number of students">
-                                        <p id="2"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="maxstudentper" class="col-md-3 col-form-label">Maximum number of students per each project</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="maxstudentper" name="maxstudentper"
-                                        placeholder="Maximum number of students per project">
-                                        <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="col-12">
-                                <h3>Algorithm parameter</h3>
-                        </div>
-                        <div class="form-group row">
-                            <label for="populationsize" class="col-md-3 col-form-label">Population Size</label>
-                            <div class="col-md-9">
-                                <input type="number" class="form-control" id="population" name="population"
-                                        placeholder="default 500" value="500">
-                                <p id="3"></p>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="probcrossover" class="col-md-3 col-form-label">Probability of crossover</label>
-                                <div class="col-md-9">
-                                    
-                                    <input type="number" class="form-control" id="probcrossover" name="probcrossover"
-                                            placeholder="default 0.95" value="0.95">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="probmutation" class="col-md-3 col-form-label">Probability of mutation</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="probmutation" name="probmutation"
-                                            placeholder="default 0.1" value ="0.1">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="ncross" class="col-md-3 col-form-label">N_cross</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="ncross" name="ncross"
-                                            placeholder="default 2" value ="2">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="nkeep" class="col-md-3 col-form-label">N_keep</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="nkeep" name="nkeep"
-                                            placeholder="default 2" value ="2">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="col-12">
-                                <h3>Convergence Parameters</h3>
-                        </div>
-                        <div class="form-group row">
-                                <label for="maxiter" class="col-md-3 col-form-label">Maximum number of optimization iterations</label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="maxiter" name="maxiter"
-                                            placeholder="default 1000" value ="1000">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="costtol" class="col-md-3 col-form-label">Cost function change tolerance
-                                    </label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="costtol" name="costtol"
-                                            placeholder="default 1e-6" value ="1e-6">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
-                        <div class="gamma">
-                                <h3>Cost Function</h3>
-                        </div>
-                        <div class="form-group row">
-                                <label for="gamma" class="col-md-3 col-form-label">gamma
-                                    </label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="gamma" name="gamma"
-                                            placeholder="default 2" value ="2">
-                                    <p id="3"></p>
+                                    <input type="text" class="form-control" id="jobname" name="jobname"
+                                            placeholder="Enter Job Name Here">
+                                            
                                 </div>
                         </div>
 
-                        <div class="form-group row">
-                                <label for="gamma_gpa" class="col-md-3 col-form-label">gamma gpa
-                                    </label>
-                                <div class="col-md-9">
-                                    <input type="number" class="form-control" id="gamma_gpa" name="gamma_gpa"
-                                            placeholder="default 2" value ="2">
-                                    <p id="3"></p>
-                                </div>
-                        </div>
+                        <span>
+                                <a data-toggle="modal" data-target="#settingModal" onclick="updateDefault()">
+                                    <span class="fa fa-cog "></span> Settings
+                                </a>
+                        </span>
 
+
+
+                   
                         <div class="form-group row">
                                 <div class="offset-md-2 col-md-10">
                                     <button type="submit" class="btn btn-primary" onclick="validateForm()">Submit</button>
                                 </div>
                             </div>
                     </form>
+
+
+
+
+                    <div id="settingModal" class="modal fade" role="dialog">
+                            <div class= "modal-dialog modal-lg " role="content">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Settings</h4>
+                                        <button type="button" class="close btn btn-light" data-dismiss="modal">
+                                                &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <form action="./aboutus.html" method="get" >
+
+                                            <div class="form-row">
+                                                    
+                                                <h6>Parameters in setup student interface for project selection</h6>
+                                                       
+                                                
+
+                                                <div class="form-group row">
+                                                        <label for="totalprojects" class="col-md-3 col-form-label ">Total number of points</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="totalpoint" name="totalproject"
+                                                                placeholder="Total number of points" >
+                                                                
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                        <label for="minprojectselected" class="col-md-3 col-form-label">Minimum project selected</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="minproject" name="minselected" value=""
+                                                                placeholder="Minimum project selected">
+                                                                
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                        <label for="maxpointper" class="col-md-3 col-form-label">Maximum number of points per  project</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="maxpointper" name="maxstudentper"
+                                                                placeholder="Maximum number of points per project">
+                                                               
+                                                        </div>
+                                                </div>
+
+
+                                                <h6>Parameters For the Optimization Algorithm</h6>
+
+                                               
+                                                <div class="form-group row">
+                                                        <label for="maxstuper" class="col-md-3 col-form-label">Maximum number of students per  project</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="maxstudentper" name="maxstudentper"
+                                                                placeholder="Maximum number of students per project" value = "4">
+                                                               
+                                                        </div>
+                                                </div>
+
+                                                
+                                                 
+                                                <div class="form-group row">
+                                                        <h6 class="col-md-12">Project Objective</h6>
+                                                        <div class="col-sm-auto ">
+                                                            <div class="form-check ">
+                                                                    <input class="form-check-input disabled " type="checkbox" checked="checked"  >
+                                                                    <label class="form-check-label"> 
+                                                                        Maximize Student satisfaction
+                                                                    </label>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-sm-auto ">
+                                                                <div class="form-check " id="addgamma">
+                                                                        
+                                                                        <input class="form-check-input " type="checkbox" onclick="addGammaField()">
+                                                                        <label class="form-check-label"> 
+                                                                            Minimize variance of students in each project
+                                                                        </label>
+                                                                        
+                                                
+                                                                    
+                                                                </div>
+                                                            
+                                                        </div>
+
+
+                                                        <div class="col-sm-auto ">
+                                                                <div class="form-check " id="addgammagpa">
+                                                                    
+                                                                        <input class="form-check-input " type="checkbox" onclick="addGammaGPAField()">
+                                                                        <label class="form-check-label"> 
+                                                                            Minimize variance of average GPA in each project 
+                                                                        </label>
+                                                                        
+                                                
+                                                                    
+                                                                </div>
+                                                            
+                                                        </div>
+ 
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                        <label for="maxiter" class="col-md-3 col-form-label">Maximum number of iteration</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="maxiteration" name="max"
+                                                                placeholder="Enter Maximum number of iteration">
+                                                               
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group row " >
+                                                        <label for="tol" class="col-md-3 col-form-label">Tolerance for stopping condition</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="tolerance" name="tol"
+                                                                placeholder="Enter cost tolerance" >
+                                                               
+                                                        </div>
+                                                </div>
+
+                                                
+
+                                                <h6 class="col-12">        Parameters For the Genetic Algorithm      </h6>
+                                                <div class="form-group row">
+                                                        <label for="pop" class="col-md-3 col-form-label">Population size(number of individuals)</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="popid" name="pop"
+                                                                placeholder="Enter population size" value = "500">
+                                                               
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                        <label for="propcross" class="col-md-3 col-form-label">Crossover Probability</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="popcross" name="popcros"
+                                                                placeholder="Enter cross probability" value = "0.95">
+                                                               
+                                                        </div>
+                                                </div>
+
+
+
+                                                <div class="form-group row">
+                                                        <label for="popmu" class="col-md-3 col-form-label">Mutation Probability </label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id="popmu" name="popmu"
+                                                                placeholder="Enter Mutation Probability" value = "0.1">
+                                                               
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                        <label for="nk" class="col-md-3 col-form-label">How many individuals to retain at each iteration</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id=nk" name="nk"
+                                                                placeholder="Enter n_keep" value = "2">
+                                                               
+                                                        </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                        <label for="ncross" class="col-md-3 col-form-label">Number of locations where crossover occurs</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" class="form-control" id=ncross" name="ncross"
+                                                                placeholder="Enter n_cross" value = "2">
+                                                               
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                        <label for="reassign" class="col-md-3 col-form-label">Probability of moving students to another team</label>
+                                                        <div class="col-md">
+                                                            <input type="number" class="form-control" id=reassign" name="ncross"
+                                                                placeholder="Enter reassign" value = "1">
+                                                               
+                                                        </div>
+                                                        
+                                                            <div class="tooltip"> <a class="fa fa-info-circle"></a>
+                                                                <span class="tooltiptext">
+                                                                    <p> 
+                                                                        Probability = 1: for each individual, reassign all students that were not placed at a desired project.
+                                                                    </p> 
+                                                                </span>
+                                                            </div>
+                                                        
+                                                </div>
+                                                
+                                                
+                                                
+                                            </div>
+                                            <div class="form-row">
+                                                <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary btn-sm ml-1" >Finish Setting</button>        
+                                            </div>
+                                        </form > 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
             </div>
             
         </div>
