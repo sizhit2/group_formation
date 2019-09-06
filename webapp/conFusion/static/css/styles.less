@@ -1,0 +1,46 @@
+@illini-orange:#E84A27;
+@illini-blue:#13294b;
+@orange-pale:rgb(223, 132, 112);
+
+.zero-margin (@pad-up-dn:0px,@pad-left-right:0px) {
+    margin: 0px auto;
+    padding:@pad-up-dn @pad-left-right;
+}
+
+.row-content {
+    .zero-margin(50px,0px);
+    border-bottom: 1px ridge;
+    min-height: 400px;
+}
+
+.footer {
+    background-color:  @orange-pale;
+    .zero-margin(20px,0px);
+}
+.jumbotron {
+    .zero-margin(70px,30px);
+    background:@illini-orange;
+    color:floralwhite;
+}
+
+address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+}
+
+body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbark-dark {
+    background-color: @illini-blue;
+}
+
+.tab-content {
+    border-left: 1px solid @lt-gray;
+    border-right: 1px solid @lt-gray;
+    border-bottom: 1px solid @lt-gray;
+    padding: 10px;
+}
