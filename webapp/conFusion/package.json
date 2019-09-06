@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
     "clean": "rimraf dist",
-    "copyfonts":"copyfiles -f node_modules/font_awesome/fonts/* dist/fonts",
-    "imagemin":"imagemin img/* -o dist/img"
+    "copyfonts": "copyfiles -f node_modules/font_awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* -o dist/img"
   },
   "author": "",
   "license": "ISC",
@@ -18,8 +18,10 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "bootstrap-social": "^5.1.1",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.14.7"
