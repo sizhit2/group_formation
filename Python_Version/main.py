@@ -1,6 +1,6 @@
 from GGA import *
 
-def get_best_runs(num_iter=3, dir='../data/Run10_noGPAweight/'):
+def get_best_runs(num_iter=3, dir='../data/'):
     ga_results = []
     best_fitness = 0
     fit_index = 0

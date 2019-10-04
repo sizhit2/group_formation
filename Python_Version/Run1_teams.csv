@@ -1,0 +1,33 @@
+Project,Average GPA,Group satisfaction,Student names
+1,0.0,11.0,Indraneel Bhanap,Arjun Varma*,Timothy Hurley,Lea Savard,Ian Feign*
+2,0.0,14.0,Zhang Chi,Anastasi Diamantopoulos,Patrick Burke*,Gonzalo Gutierrez schoenmakers,Charles Jansen
+3,0.0,16.0,Benita Ning,Maya D'souza*,Anthony Parafinczuk,Tatiana Schaffer,So hyeon Youn
+4,0.0,19.0,Matthew Antkowiak,Sherry Bao,Kevin Conrad,Adrian Orea,Smit Shah
+5,0.0,13.0,Mitch Allen,Patrick Mcgrail*,Parthan Jha,Varun Sarvaiya*,Valentino Wilson
+6,0.0,13.0,Gabriel Perez plata,Daniel Petrou,Gregory Stroot*,Sunyu Wang,Gordon Zak
+7,0.0,17.0,Tianrui Chai,Young seong Kim,Javier Laguna,Jin hwan Park,Ben Van arsdale
+8,0.0,22.0,Raul Fernandez,Tristan Fisher,Vedant Puri,Nino Randazzo,Kevin Uvodich
+9,0.0,15.0,Jiawei Jiang,Elizabeth Jimenez,Jonathan Tam*,Matthew Nowak,Shao hao Sng
+10,0.0,21.0,Cole Brooker,Zhuo Chen,Mattson Jace,William Muckian,Hunter Smith
+11,0.0,12.0,Douglas Petrik,Tyler Tran,Huaiyu Chen*,Kevin Wandke,Carter Wood*
+12,0.0,22.0,Samuel Klein,Brittany Klimas,Tiffany Price,Kevin Thayyil,Ruby Xu
+13,0.0,6.0,Daniel Atten,Joshua Lozier*,Craig Peng,Wentao Ni*
+14,0.0,14.0,Esa Amin,Kevin Cruse,Rachel Hawken,Dhipak Bala*,Guillermo Lopezsilvarrey montero
+15,0.0,8.0,Allison Brown,Colton Rainey*,Michael Ho,Albert Valiaveedu*,Sarah Osman
+16,0.0,17.0,Kathryn Donlin,Brody Ryan*,Jason Rastegar,Qinan Zhou,Jiawei Dai*
+17,0.0,13.0,Xinhe Chen,Aaron Cheng,Kyung jun Lee,Woo young Park,Yeongho Kim*
+18,0.0,8.0,Timothy Man,Zachary Konecki*,Alejandro Morales,Sean Ewert*,Cole Wiegand
+19,0.0,19.0,Thomas Penicook,Robert Wolf*,Kevin Peralta,Taylor Smairat,Joseph Uhrich
+20,0.0,12.0,Jack Mahoney,Andrew Thompson*,Salaam Qatanani,Daniel Peterson*,John Speckels
+21,0.0,15.0,Connor Chu,Nathaniel Clough*,Nithin Rajkumar,Ankit Sengupta,Harsha Sankar*
+22,0.0,14.0,Riley White,Sean Nugent*,Matthew Woytek,Kevin Hart*,Qinwei Zhang
+23,0.0,15.0,Beatriz Acosta bejarano,Kirk Fortelka,Matthew Jedziniak,Mary kate Nowak,Theodore Reimann*
+24,0.0,12.0,Nabarun Banerjee,Tanner Koehne*,John Hutchinson,Luwen Sun,Yefei Si*
+25,0.0,15.0,Ines Avello,Jaime Guerrero,James Nie,Omar Darwish*,Shaoting Wu
+26,0.0,19.0,Chanchali Agrawal,Rachel Burroughs,Alexander Craffmendez*,Vedant Jain,Michael Lee
+27,0.0,13.0,Wesley Kramer,Michelle Roth,Kristina Miller*,Ziran Zhou,Xueying Hu*
+
+Total satisfaction,395.0
+Num unsatisfied,0
+Unsatisfied students
+* - student is a partner of student to the left
