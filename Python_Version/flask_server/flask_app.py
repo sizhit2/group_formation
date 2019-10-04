@@ -4,6 +4,8 @@ import json
 from StructDef import *
 from GGA_Server import *
 
+# To run this: env FLASK_APP=flask_app.py flask run
+
 app = Flask(__name__)
 student_list = []
 
