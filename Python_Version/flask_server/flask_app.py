@@ -43,15 +43,16 @@ def get_student_data():
 	student.update_project_preferences(prefs)
 	print(student)
 	student_list.append(student)
-	return "Successful write\n"
+	return "Successful write, list size: {}\n".format(len(student_list))
 
 @app.route('/StudentList')
 def print_student_list():
-    for stud in student_list:
-        print (str(stud))
-    if (len(student_list) == 0):
-        print ("No data\n")
-    return "Peace\n"
+	ret_str = 'Student list:\n'
+	for (i, stud) in enumerate(student_list):
+		ret_str += '{}: {} {}\n'.format(i, stud.first_name, stud.last_name)
+	if (len(student_list) == 0):
+	    print ("No data\n")
+	return ret_str
 
 @app.route('/GA')
 def drive_ga():

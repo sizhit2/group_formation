@@ -8,7 +8,7 @@ import time
 
 def run_ga(student_list, num_students, num_projects, max_students_per_proj, population_size=500,
         crossover_prob=0.95, mutation_prob=0.1, n_keep=2, n_cross=2, reassign=1, max_iter=500, cost_tol=1e-6,
-        gamma=1.0, gamma_gpa=0.0):
+        gamma=0.5, gamma_gpa=0.5):
     # in_data = parse_input_data(dir+'input_data.txt')
     #
     # # For the design variable matrix
