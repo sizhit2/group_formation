@@ -99,15 +99,19 @@ def export_individual_to_csv(ind, student_list, dir='../data/output/',
                     student = student_list[stud]
                     name = student.first_name.capitalize() + ' ' + student.last_name.capitalize()
                     student_names.append(name)
+                    sat = student.project_preferences[row]
                     if student.selected_partner:
                         p_name = str(student.partner_first_name).capitalize()
                         p_name += ' ' + str(student.partner_last_name).capitalize()
                         p_name += '*'
                         student_names.append(p_name)
 
-                    sat = student.project_preferences[row]
-                    group_satisfaction += sat
-                    total_satisfaction += sat
+                        group_satisfaction += 2 * sat
+                        total_satisfaction += 2 * sat
+                    else:
+                        group_satisfaction += sat
+                        total_satisfaction += sat
+
                     if sat == 0:
                         num_unsatisfied += 1
                         unsatisfied_students.append(name)

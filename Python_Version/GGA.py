@@ -46,7 +46,11 @@ def run_ga(dir='../data/'):
     max_satisfaction = 0
     for i, student in enumerate(student_list):
         student_pref_matrix[i, :] = student.project_preferences
-        max_satisfaction += max(student_pref_matrix[i, :])
+        if student.selected_partner:
+            max_satisfaction += 2 * max(student_pref_matrix[i, :])
+        else:
+            max_satisfaction += max(student_pref_matrix[i, :])
+    print ("Max theoretical satisfation: {}".format(max_satisfaction))
 
     class_avg_gpa = OptimizationFunctions.get_class_avg_gpa(student_list)
     avg_size_group = int(num_students / num_projects)
@@ -179,7 +183,7 @@ def run_ga(dir='../data/'):
 
 # Temporary to run on new data
 def t_main():
-    run_ga(dir='../data/RunX_debug/')
+    run_ga(dir='../data/2020RunDebug/')
 
 def main():
     num_iter = 5

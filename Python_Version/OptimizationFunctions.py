@@ -142,6 +142,8 @@ class OptimizationFunctions(object):
             # Student i was assigned project proj
             student = student_list[i]
             satisfaction_score += student.project_preferences[proj]
+            if student.selected_partner:
+                satisfaction_score += student.project_preferences[proj]
         # Normalize the satisfaction_score based on max_satisfaction
         satisfaction_score = satisfaction_score / max_satisfaction
 
@@ -161,12 +163,12 @@ class OptimizationFunctions(object):
                 # Account for partners
                 proj = individual.chrom[stud]
                 fictitious_num_students[proj] += 1
-                pair_gpa = student_list[stud].gpa
-                if student_list[stud].selected_partner:
-                    pair_gpa += student_list[stud].partner_gpa
-                    fictitious_num_students[proj] += 1
+                # pair_gpa = student_list[stud].gpa
 
-                individual.avg_gpa_per_project[proj] += pair_gpa
+                individual.avg_gpa_per_project[proj] += student_list[stud].gpa
+                if student_list[stud].selected_partner:
+                    individual.avg_gpa_per_project[proj] += student_list[stud].partner_gpa
+                    fictitious_num_students[proj] += 1
 
             # Getting variance of average GPA per project
             for proj in range(individual.num_projects):
@@ -176,6 +178,7 @@ class OptimizationFunctions(object):
 
             sigma_gpa /= individual.num_projects
 
+        # print ("sigma: {}, sigma_gpa: {}".format(sigma, sigma_gpa))
         # Combine the 3 costs to get the final fitness
         individual.fitness = satisfaction_score
         if sigma > 0:
