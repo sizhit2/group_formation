@@ -159,13 +159,13 @@ class OptimizationFunctions(object):
             fictitious_num_students = np.zeros(individual.num_projects)
             for stud in range(individual.num_students):
                 # Account for partners
+                proj = individual.chrom[stud]
+                fictitious_num_students[proj] += 1
                 pair_gpa = student_list[stud].gpa
                 if student_list[stud].selected_partner:
                     pair_gpa += student_list[stud].partner_gpa
-                    pair_gpa = pair_gpa / 2
+                    fictitious_num_students[proj] += 1
 
-                proj = individual.chrom[stud]
-                fictitious_num_students[proj] += 1
                 individual.avg_gpa_per_project[proj] += pair_gpa
 
             # Getting variance of average GPA per project
