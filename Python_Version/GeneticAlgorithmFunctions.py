@@ -32,7 +32,7 @@ class GeneticAlgorithmFunctions(object):
         """
         size = len(population)
         temp_s = 0.0
-        pick = np.random.rand()
+        pick = np.random.rand() * 10
 
         i = 0
         while i < size and temp_s < pick:

@@ -30,6 +30,11 @@ def run_ga(dir='../data/'):
     gamma = in_data[13]
     gamma_gpa = in_data[14]
 
+    print ("population_size: {}".format(population_size))
+    print ("gamma: {}, gamma_gpa: {}".format(gamma, gamma_gpa))
+    print ("max_iter: {}, cost_tol: {}".format(max_iter, cost_tol))
+    print ("crossover_prob: {}, mutation_prob: {}".format(crossover_prob, mutation_prob))
+    print ("n_keep: {}, n_cross: {}".format(n_keep, n_cross))
     # gamma_gpa = 0  # Comment out this line when considering GPA
 
     print ("Reading Excel data....")
@@ -135,7 +140,7 @@ def run_ga(dir='../data/'):
         if iter_check > 10 and converged and reassign == -1:
             reassign = 1
         if iter_check > 30 and converged:
-            if iter < 150:
+            if iter < 150: # Inforce at least 150 iterations
                 mutation_prob *= 1.2
                 continue
             break
@@ -157,25 +162,39 @@ def run_ga(dir='../data/'):
     for stud in range(len(student_list)):
         student = student_list[stud]
         satisfaction = student.project_preferences[best_chromosome.chrom[stud]]
-        total_satisfaction += satisfaction
+        if student.selected_partner:
+            total_satisfaction += 2*satisfaction
+        else:
+            total_satisfaction += satisfaction
         if satisfaction > 0:
             num_students_picked_project += 1
         else:
             num_students_unfavorable += 1
 
-    # print("Total satisfaction:\n", total_satisfaction)
-    # print("Max satisfaction:\n", max_satisfaction)
-    # print("# students in projects they picked:", num_students_picked_project)
-    # print("# students in projects they did not pick:", num_students_unfavorable)
-    # print("Final fitness: \n", best_chromosome.fitness)
-    # print("Num students per project: \n", best_chromosome.num_student_per_project)
+    mean_gpa = 0.0
+    for c in best_chromosome.avg_gpa_per_project:
+        mean_gpa += c
+    mean_gpa /= len(best_chromosome.avg_gpa_per_project)
+    var = 0.0
+    for c in best_chromosome.avg_gpa_per_project:
+        var += (c - mean_gpa)**2
+    var /= len(best_chromosome.avg_gpa_per_project) - 1
+
+    print("Total satisfaction:\n", total_satisfaction)
+    print("Max satisfaction:\n", max_satisfaction)
+    print("Total/max satisfaction: {}".format(float(total_satisfaction) / max_satisfaction))
+    print("# students in projects they picked:", num_students_picked_project)
+    print("# students in projects they did not pick:", num_students_unfavorable)
+    print("Final fitness: \n", best_chromosome.fitness)
+    print("Num students per project: \n", best_chromosome.num_student_per_project)
     print ("Reassigning students helped in %d generations" % reassign_helped)
     print ("Generations benefitting from reassign:", reassign_generations)
     # print("Number of generations to converge: %d" % iter)
     print("Execution time %dm %ds" % (int(seconds_taken) / 60, int(seconds_taken) % 60))
     print ("Avg gpa per project: \n", best_chromosome.avg_gpa_per_project)
+    print ("Variance of Avg gpa per project: {}".format(var))
     # export_individual_to_csv(best_chromosome, student_list)
-    export_individual_to_csv(best_chromosome, student_list, filename='debug_teams.csv', dir='')
+    # export_individual_to_csv(best_chromosome, student_list, filename='debug_teams.csv', dir='')
     return (total_satisfaction, most_satisfied, best_chromosome.fitness,
             best_chromosome.num_student_per_project, iter, seconds_taken,
             best_chromosome, student_list)
@@ -183,7 +202,7 @@ def run_ga(dir='../data/'):
 
 # Temporary to run on new data
 def t_main():
-    run_ga(dir='../data/2020RunDebug/')
+    run_ga(dir='../data/RunX_debug')
 
 def main():
     num_iter = 5
@@ -196,7 +215,7 @@ def main():
     bsat_index = 0
     for i in range(num_iter):
         print("\nRun #%d" % (i+1))
-        result = run_ga()
+        result = run_ga(dir='../data/RunX_debug/')
         if len(ga_results) == 0:
             best_fitness = result[2]
             best_satisfaction = result[0]
@@ -223,4 +242,4 @@ def main():
 
 
 if __name__ == '__main__':
-    t_main()
+    main()
